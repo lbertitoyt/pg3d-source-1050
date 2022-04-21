@@ -1,0 +1,309 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cb0b838d421bc049b41cfed5bbfba14, type: 3}
+  m_Name: crosshairs
+  m_EditorClassIdentifier:
+  Crosshairs:
+  - ID: 1
+    Name: Пистолет
+    PreviewTexture: {fileID: 2800000, guid: 4c0d76382db1dfd468026f87729d0c2d, type: 3}
+    center:
+      spriteName: aim_1
+      spriteSize: {x: 6, y: 6}
+      offset: {x: 0, y: 0}
+    up:
+      spriteName: aim_3
+      spriteSize: {x: 6, y: 10}
+      offset: {x: 0, y: 5}
+    leftUp:
+      spriteName:
+      spriteSize: {x: 12, y: 12}
+      offset: {x: 8, y: 8}
+    left:
+      spriteName: aim_2
+      spriteSize: {x: 10, y: 6}
+      offset: {x: 5, y: 0}
+    leftDown:
+      spriteName:
+      spriteSize: {x: 12, y: 12}
+      offset: {x: 8, y: 8}
+    down:
+      spriteName: aim_3
+      spriteSize: {x: 6, y: 10}
+      offset: {x: 0, y: 5}
+  - ID: 2
+    Name: Автомат
+    PreviewTexture: {fileID: 2800000, guid: 0d4725a8be2d2e84580b5db3189173a4, type: 3}
+    center:
+      spriteName: aim_1
+      spriteSize: {x: 6, y: 6}
+      offset: {x: 0, y: 0}
+    up:
+      spriteName:
+      spriteSize: {x: 12, y: 12}
+      offset: {x: 0, y: 8}
+    leftUp:
+      spriteName: aim_4
+      spriteSize: {x: 10, y: 10}
+      offset: {x: 5, y: 5}
+    left:
+      spriteName:
+      spriteSize: {x: 12, y: 12}
+      offset: {x: 8, y: 0}
+    leftDown:
+      spriteName: aim_5
+      spriteSize: {x: 10, y: 10}
+      offset: {x: 5, y: 5}
+    down:
+      spriteName:
+      spriteSize: {x: 12, y: 12}
+      offset: {x: 0, y: 8}
+  - ID: 3
+    Name: Дробовик
+    PreviewTexture: {fileID: 2800000, guid: c33d2fe8c62d14c4b86b862c50b11993, type: 3}
+    center:
+      spriteName:
+      spriteSize: {x: 12, y: 12}
+      offset: {x: 0, y: 0}
+    up:
+      spriteName: aim_7
+      spriteSize: {x: 22, y: 10}
+      offset: {x: 0, y: 5}
+    leftUp:
+      spriteName:
+      spriteSize: {x: 12, y: 12}
+      offset: {x: 8, y: 8}
+    left:
+      spriteName: aim_6
+      spriteSize: {x: 10, y: 22}
+      offset: {x: 5, y: 0}
+    leftDown:
+      spriteName:
+      spriteSize: {x: 12, y: 12}
+      offset: {x: 8, y: 8}
+    down:
+      spriteName: aim_8
+      spriteSize: {x: 22, y: 10}
+      offset: {x: 0, y: 5}
+  - ID: 5
+    Name: Холодное оружие
+    PreviewTexture: {fileID: 2800000, guid: eb05d35c761e7944d922e0736b9fdbb1, type: 3}
+    center:
+      spriteName:
+      spriteSize: {x: 12, y: 12}
+      offset: {x: 0, y: 0}
+    up:
+      spriteName: aim_3
+      spriteSize: {x: 6, y: 10}
+      offset: {x: 0, y: 15}
+    leftUp:
+      spriteName:
+      spriteSize: {x: 12, y: 12}
+      offset: {x: 8, y: 8}
+    left:
+      spriteName: aim_2
+      spriteSize: {x: 10, y: 6}
+      offset: {x: 15, y: 0}
+    leftDown:
+      spriteName:
+      spriteSize: {x: 12, y: 12}
+      offset: {x: 8, y: 8}
+    down:
+      spriteName: aim_3
+      spriteSize: {x: 6, y: 10}
+      offset: {x: 0, y: 15}
+  - ID: 6
+    Name: Снайпер
+    PreviewTexture: {fileID: 2800000, guid: 87f4a95c9164ef8448db155f7d4a77de, type: 3}
+    center:
+      spriteName: aim_1
+      spriteSize: {x: 6, y: 6}
+      offset: {x: 0, y: 0}
+    up:
+      spriteName:
+      spriteSize: {x: 12, y: 12}
+      offset: {x: 0, y: 8}
+    leftUp:
+      spriteName:
+      spriteSize: {x: 12, y: 12}
+      offset: {x: 8, y: 8}
+    left:
+      spriteName: aim_6
+      spriteSize: {x: 10, y: 22}
+      offset: {x: 25, y: 0}
+    leftDown:
+      spriteName:
+      spriteSize: {x: 12, y: 12}
+      offset: {x: 8, y: 8}
+    down:
+      spriteName:
+      spriteSize: {x: 12, y: 12}
+      offset: {x: 0, y: 8}
+  - ID: 7
+    Name: Энергетическое
+    PreviewTexture: {fileID: 2800000, guid: 9989fd52b98b8d44c9afdf6ddca25e3d, type: 3}
+    center:
+      spriteName:
+      spriteSize: {x: 6, y: 6}
+      offset: {x: 0, y: 0}
+    up:
+      spriteName: aim_13
+      spriteSize: {x: 14, y: 10}
+      offset: {x: 0, y: 5}
+    leftUp:
+      spriteName:
+      spriteSize: {x: 12, y: 12}
+      offset: {x: 8, y: 8}
+    left:
+      spriteName: aim_12
+      spriteSize: {x: 10, y: 14}
+      offset: {x: 5, y: 0}
+    leftDown:
+      spriteName:
+      spriteSize: {x: 0, y: 0}
+      offset: {x: 0, y: 0}
+    down:
+      spriteName: aim_14
+      spriteSize: {x: 14, y: 10}
+      offset: {x: 0, y: 5}
+  - ID: 8
+    Name: Ракетница
+    PreviewTexture: {fileID: 2800000, guid: eaf765fc608c1a54388dfd2c3ce9aece, type: 3}
+    center:
+      spriteName:
+      spriteSize: {x: 6, y: 6}
+      offset: {x: 0, y: 0}
+    up:
+      spriteName:
+      spriteSize: {x: 6, y: 10}
+      offset: {x: 0, y: 5}
+    leftUp:
+      spriteName: aim_9
+      spriteSize: {x: 14, y: 14}
+      offset: {x: 7, y: 7}
+    left:
+      spriteName:
+      spriteSize: {x: 10, y: 6}
+      offset: {x: 5, y: 0}
+    leftDown:
+      spriteName: aim_10
+      spriteSize: {x: 14, y: 14}
+      offset: {x: 7, y: 7}
+    down:
+      spriteName:
+      spriteSize: {x: 6, y: 10}
+      offset: {x: 0, y: 5}
+  - ID: 9
+    Name: Огнемет
+    PreviewTexture: {fileID: 2800000, guid: 1a88b33611c5abe408a6c54665c3f0fe, type: 3}
+    center:
+      spriteName:
+      spriteSize: {x: 6, y: 6}
+      offset: {x: 0, y: 0}
+    up:
+      spriteName: aim_1
+      spriteSize: {x: 6, y: 6}
+      offset: {x: 0, y: 10}
+    leftUp:
+      spriteName: aim_1
+      spriteSize: {x: 6, y: 6}
+      offset: {x: 3, y: 3}
+    left:
+      spriteName: aim_1
+      spriteSize: {x: 6, y: 6}
+      offset: {x: 10, y: 0}
+    leftDown:
+      spriteName: aim_1
+      spriteSize: {x: 6, y: 6}
+      offset: {x: 3, y: 3}
+    down:
+      spriteName: aim_1
+      spriteSize: {x: 6, y: 6}
+      offset: {x: 0, y: 10}
+  - ID: 10
+    Name: Метание дисков
+    PreviewTexture: {fileID: 2800000, guid: 7dea012f306958f4db6034aa6555b17b, type: 3}
+    center:
+      spriteName:
+      spriteSize: {x: 6, y: 6}
+      offset: {x: 0, y: 0}
+    up:
+      spriteName:
+      spriteSize: {x: 6, y: 10}
+      offset: {x: 0, y: 5}
+    leftUp:
+      spriteName:
+      spriteSize: {x: 12, y: 12}
+      offset: {x: 8, y: 8}
+    left:
+      spriteName: aim_6
+      spriteSize: {x: 10, y: 22}
+      offset: {x: 25, y: 0}
+    leftDown:
+      spriteName:
+      spriteSize: {x: 0, y: 0}
+      offset: {x: 0, y: 0}
+    down:
+      spriteName:
+      spriteSize: {x: 6, y: 10}
+      offset: {x: 0, y: 5}
+  - ID: 11
+    Name: Снаряды
+    PreviewTexture: {fileID: 2800000, guid: fc936d74568145640b94e75eab6873d5, type: 3}
+    center:
+      spriteName: aim_1
+      spriteSize: {x: 6, y: 6}
+      offset: {x: 0, y: 0}
+    up:
+      spriteName: aim_2
+      spriteSize: {x: 10, y: 6}
+      offset: {x: 0, y: 3}
+    leftUp:
+      spriteName:
+      spriteSize: {x: 12, y: 12}
+      offset: {x: 8, y: 8}
+    left:
+      spriteName: aim_3
+      spriteSize: {x: 6, y: 10}
+      offset: {x: 3, y: 0}
+    leftDown:
+      spriteName:
+      spriteSize: {x: 0, y: 0}
+      offset: {x: 0, y: 0}
+    down:
+      spriteName: aim_2
+      spriteSize: {x: 10, y: 6}
+      offset: {x: 0, y: 3}
+  - ID: 12
+    Name: Луки / Арбалеты
+    PreviewTexture: {fileID: 2800000, guid: 859b867977297d0499a4f4387c45e0c6, type: 3}
+    center:
+      spriteName: aim_1
+      spriteSize: {x: 6, y: 6}
+      offset: {x: 0, y: 0}
+    up:
+      spriteName: aim_16
+      spriteSize: {x: 14, y: 12}
+      offset: {x: 0, y: 6}
+    leftUp:
+      spriteName:
+      spriteSize: {x: 12, y: 12}
+      offset: {x: 8, y: 8}
+    left:
+      spriteName: aim_15
+      spriteSize: {x: 12, y: 14}
+      offset: {x: 6, y: 0}
+    leftDown:
+      spriteName:
+      spriteSize: {x: 0, y: 0}
+      offset: {x: 0, y: 0}
+    down:
+      spriteName: aim_17
+      spriteSize: {x: 14, y: 12}
+      offset: {x: 0, y: 6}

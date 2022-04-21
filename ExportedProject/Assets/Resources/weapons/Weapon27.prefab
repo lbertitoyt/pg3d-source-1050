@@ -1,0 +1,178 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1101641437121262}
+  m_IsPrefabParent: 1
+--- !u!1 &1101641437121262
+GameObject:
+  m_ObjectHideFlags: 0
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4354232573033337}
+  - component: {fileID: 114124009293107893}
+  - component: {fileID: 114346521697760517}
+  m_Layer: 0
+  m_Name: Weapon27
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4354232573033337
+Transform:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1101641437121262}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4812575485432839}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114124009293107893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1101641437121262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2a468cdf2d9c064bac1b8d244d91d60, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  typeForLow: 14
+  InShopEffects: 0100000011000000
+  zoomShop: 0
+  isSlowdown: 0
+  slowdownCoeff: 0
+  slowdownTime: 0
+  noFillObjects: []
+  typeTracer: 0
+  _innerPars: {fileID: 0}
+  typeDead: 0
+  gunFlash: {fileID: 0}
+  gunFlashDouble: []
+  lengthForShot: 1.4166667
+  damageByTier:
+  - 7.083334
+  - 11.333334
+  - 11.333334
+  - 11.333334
+  - 11.333334
+  - 11.333334
+  dpses:
+  - 5
+  - 8
+  - 8
+  - 8
+  - 8
+  - 8
+  tier: 1
+  categoryNabor: 5
+  isGrenadeWeapon: 0
+  fireRateShop: 81
+  CapacityShop: 1
+  mobilityShop: 110
+  filterMap:
+  alternativeName: Weapon1
+  isBurstShooting: 0
+  countShootInBurst: 3
+  delayInBurstShooting: 1
+  isDaterWeapon: 0
+  daterMessage:
+  ammoInClip: 1
+  InitialAmmo: 20
+  maxAmmo: 40
+  ammoForBonusShotMelee: 10
+  isMelee: 1
+  isRoundMelee: 0
+  radiusRoundMelee: 5
+  isLoopShoot: 0
+  isShotGun: 0
+  isDoubleShot: 0
+  countShots: 15
+  isShotMelee: 1
+  isZooming: 0
+  isMagic: 0
+  flamethrower: 0
+  bulletExplode: 0
+  bazooka: 0
+  countInSeriaBazooka: 1
+  stepTimeInSeriaBazooka: 0.2
+  railgun: 0
+  railName: Weapon77
+  freezer: 0
+  countReflectionRay: 1
+  grenadeLauncher: 0
+  bazookaExplosionName: Explosion1
+  bazookaExplosionRadius: 5
+  bazookaExplosionRadiusSelf: 2.5
+  bazookaImpulseRadius: 6
+  impulseForce: 50
+  impulseForceSelf: 133.4
+  fieldOfViewZomm: 75
+  range: 60
+  damage: 200
+  speedModifier: 1.1
+  Probability: 0
+  damageRange: {x: -50, y: 50}
+  gunPosition: {x: 0, y: -1.7, z: 0}
+  inAppExtensionModifier: 10
+  meleeAngle: 10
+  multiplayerDamage: 7.083334
+  meleeAttackTimeModifier: 0.17
+  startZone: {x: 20, y: 20}
+  tekKoof: 1
+  upKoofFire: 5
+  maxKoof: 1
+  downKoofFirst: 5
+  downKoof: 5
+  campaignOnly: 0
+  rocketNum: 0
+  scopeNum: 0
+  scaleShop: 189.62132
+  positionShop: {x: 0.54125977, y: -0.26929474, z: 0.8547785}
+  rotationShop: {x: 330.00003, y: 120.00001, z: 9.858529E-07}
+  localizeWeaponKey: Key_0640
+  DPSRememberWhenGet: 0
+--- !u!114 &114346521697760517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1101641437121262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd3169b9d20f2ef48be1c020bbc6fc92, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  _dataId: 12
+--- !u!1 &1656862508519514
+GameObject:
+  m_ObjectHideFlags: 0
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4812575485432839}
+  m_Layer: 0
+  m_Name: BulletSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4812575485432839
+Transform:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1656862508519514}
+  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: -0.5}
+  m_LocalPosition: {x: 0.1745444, y: 1.3708742, z: 0.53397197}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4354232573033337}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -90, y: -90, z: 0}

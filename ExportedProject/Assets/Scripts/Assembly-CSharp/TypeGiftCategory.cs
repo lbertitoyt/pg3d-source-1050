@@ -1,0 +1,21 @@
+public enum TypeGiftCategory
+{
+	none,
+	Coins,
+	Gems,
+	Grenades,
+	Gear,
+	Skins,
+	ArmorAndHat,
+	Wear,
+	Event_content,
+	Editor,
+	Masks,
+	Capes,
+	Boots,
+	Hats,
+	Gun1,
+	Gun2,
+	Gun3,
+	Guns_gray
+}

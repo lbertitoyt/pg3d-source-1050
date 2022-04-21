@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1192347096065480}
+  m_IsPrefabParent: 1
+--- !u!1 &1192347096065480
+GameObject:
+  m_ObjectHideFlags: 0
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4379008248619544}
+  - component: {fileID: 114297874076626151}
+  - component: {fileID: 114508925486462771}
+  m_Layer: 0
+  m_Name: CoinsShop
+  m_TagString: CoinsShop
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4379008248619544
+Transform:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1192347096065480}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.7885742, y: -0.03100586, z: -8.668884}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114297874076626151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1192347096065480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8ef4529fe96aa447b7ee9f59e0e44c0, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+--- !u!114 &114508925486462771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1192347096065480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a1671b34c5d12e4aa2340cde8fd5054, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  rectButCoins:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  rectLabelCoins:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0

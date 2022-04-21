@@ -1,0 +1,137 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1761657448234850}
+  m_IsPrefabParent: 1
+--- !u!1 &1761657448234850
+GameObject:
+  m_ObjectHideFlags: 0
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4190034096893819}
+  - component: {fileID: 111625808396886248}
+  - component: {fileID: 114298695795450332}
+  m_Layer: 0
+  m_Name: cape_SkeletonLord
+  m_TagString: cape_SkeletonLord
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4190034096893819
+Transform:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1761657448234850}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4886710759427149}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!111 &111625808396886248
+Animation:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1761657448234850}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 3142014f320e14f4b973402ca4e50961, type: 2}
+  - {fileID: 7400000, guid: 7246b6f3816df864c89e49d058e69a1d, type: 2}
+  - {fileID: 7400000, guid: 9792d0c3489a7ec4e98d2b3222d084f6, type: 2}
+  - {fileID: 7400000, guid: c0868b279eb6cfa44a1beb0d81235ecb, type: 2}
+  - {fileID: 7400000, guid: d9a9a8655dc68a847bd70007e88952a1, type: 2}
+  - {fileID: 7400000, guid: 44b39a4a66ac235438218c17b6ceeee9, type: 2}
+  - {fileID: 7400000, guid: 1a7b881f00441c04983c0716acd2d2c3, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!114 &114298695795450332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1761657448234850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a416b833b738de2479b17baf0c150812, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  tier: 0
+  league: 1
+  scaleShop: 150
+  positionShop: {x: -1.440186, y: -0.01719666, z: 0.06698845}
+  rotationShop: {x: 0, y: 30, z: -15}
+  localizeKey: Key_0749
+--- !u!1 &1468316026445464
+GameObject:
+  m_ObjectHideFlags: 0
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4886710759427149}
+  - component: {fileID: 33807964897903302}
+  - component: {fileID: 23148904398500560}
+  m_Layer: 0
+  m_Name: cape_SkeletonLord
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4886710759427149
+Transform:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1468316026445464}
+  m_LocalRotation: {x: 0.05653127, y: 0.7048434, z: -0.05653127, w: 0.7048434}
+  m_LocalPosition: {x: -0.14626159, y: 1.4976315, z: 0.009140319}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4190034096893819}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 9.171072, y: -90, z: 0}
+--- !u!33 &33807964897903302
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1468316026445464}
+  m_Mesh: {fileID: 4300000, guid: 20481634cf1f0024da57293e0e935bb1, type: 2}
+--- !u!23 &23148904398500560
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1468316026445464}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 02b0ec4fa320aa94f9eaf45e3092198c, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0

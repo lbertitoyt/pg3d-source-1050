@@ -1,0 +1,324 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1283689133625839}
+  m_IsPrefabParent: 1
+--- !u!1 &1283689133625839
+GameObject:
+  m_ObjectHideFlags: 0
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4998638647424923}
+  - component: {fileID: 95273883076089699}
+  - component: {fileID: 114261889564310221}
+  m_Layer: 0
+  m_Name: Armor_Adamant_Const_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4998638647424923
+Transform:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1283689133625839}
+  m_LocalRotation: {x: 2.6027428E-07, y: 0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 7.6293944E-08, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4658958863603212}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 2.9825234E-05, y: -0, z: 0}
+--- !u!95 &95273883076089699
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1283689133625839}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 70cc06ddf69acca4da1962897be99eda, type: 2}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage:
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114261889564310221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1283689133625839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a416b833b738de2479b17baf0c150812, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  tier: 2
+  league: 1
+  scaleShop: 149.58092
+  positionShop: {x: 0.1040039, y: -2.163567, z: -24.51644}
+  rotationShop: {x: 285, y: 180.00015, z: 48.96416}
+  localizeKey: Key_1283
+--- !u!1 &1979349229479254
+GameObject:
+  m_ObjectHideFlags: 0
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4658958863603212}
+  - component: {fileID: 114230011412047798}
+  m_Layer: 0
+  m_Name: Armor_Adamant_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4658958863603212
+Transform:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1979349229479254}
+  m_LocalRotation: {x: -2.3841858E-07, y: 0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: -7.751456E-08, z: 4.529953E-08}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4256222685667233}
+  - {fileID: 4867283048053788}
+  - {fileID: 4692649809810922}
+  - {fileID: 4447357857942486}
+  m_Father: {fileID: 4998638647424923}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -2.7320757E-05, y: -0, z: 0}
+--- !u!114 &114230011412047798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1979349229479254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 880a097771af6f14b8c2d14517e6b2e5, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  mesh: {fileID: 0}
+  leftBone: {fileID: 4867283048053788}
+  rightBone: {fileID: 4692649809810922}
+--- !u!1 &1869511668926263
+GameObject:
+  m_ObjectHideFlags: 0
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4256222685667233}
+  - component: {fileID: 33072803501787048}
+  - component: {fileID: 23611547874869937}
+  m_Layer: 0
+  m_Name: Armor_Adamant_3_Mesh
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4256222685667233
+Transform:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1869511668926263}
+  m_LocalRotation: {x: -0.7071069, y: 0, z: 0, w: 0.70710677}
+  m_LocalPosition: {x: -0, y: 3.0639643E-07, z: -4.5299494E-08}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4658958863603212}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -90.00001, y: -0, z: 0}
+--- !u!33 &33072803501787048
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1869511668926263}
+  m_Mesh: {fileID: 4300000, guid: 41896afaead3f1a4d9b04158c4c6d503, type: 2}
+--- !u!23 &23611547874869937
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1869511668926263}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 1f5e8f0c096e38d49840662066b3e99b, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!1 &1321407053442479
+GameObject:
+  m_ObjectHideFlags: 0
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4867283048053788}
+  - component: {fileID: 33382164104606168}
+  - component: {fileID: 23696929830788470}
+  m_Layer: 0
+  m_Name: Armor_Arm_adamant_3_Left
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4867283048053788
+Transform:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1321407053442479}
+  m_LocalRotation: {x: 5.6843415E-14, y: -2.3841856E-07, z: 2.3841858E-07, w: 1}
+  m_LocalPosition: {x: -0.25253698, y: 1.3508747, z: -0.01571991}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4658958863603212}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 2.7320755E-05, z: -2.7320757E-05}
+--- !u!33 &33382164104606168
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1321407053442479}
+  m_Mesh: {fileID: 4300000, guid: 6cc4bd59338051845a04820d6881130c, type: 2}
+--- !u!23 &23696929830788470
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1321407053442479}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 1f5e8f0c096e38d49840662066b3e99b, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!1 &1549185110215460
+GameObject:
+  m_ObjectHideFlags: 0
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4692649809810922}
+  - component: {fileID: 33138481137693067}
+  - component: {fileID: 23340783650025839}
+  m_Layer: 0
+  m_Name: Armor_Arm_adamant_3_Right
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4692649809810922
+Transform:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1549185110215460}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.26200792, y: 1.350875, z: -0.015719756}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4658958863603212}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: 0}
+--- !u!33 &33138481137693067
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1549185110215460}
+  m_Mesh: {fileID: 4300000, guid: e5bc491ffc9af594ca7dca686cc6816a, type: 2}
+--- !u!23 &23340783650025839
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1549185110215460}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 1f5e8f0c096e38d49840662066b3e99b, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!1 &1505864534352379
+GameObject:
+  m_ObjectHideFlags: 0
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4447357857942486}
+  m_Layer: 0
+  m_Name: Armor_Body
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4447357857942486
+Transform:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1505864534352379}
+  m_LocalRotation: {x: 1.470274E-07, y: 3.5054062E-14, z: 2.3841858E-07, w: 1}
+  m_LocalPosition: {x: -4.4733284E-07, y: 2.1655995E-09, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4658958863603212}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 1.6848098E-05, y: -0, z: -2.7320757E-05}

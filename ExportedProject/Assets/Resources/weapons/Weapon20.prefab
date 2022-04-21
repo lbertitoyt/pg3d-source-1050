@@ -1,0 +1,153 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1511753131691423}
+  m_IsPrefabParent: 1
+--- !u!1 &1511753131691423
+GameObject:
+  m_ObjectHideFlags: 0
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4595585353861895}
+  - component: {fileID: 114598336461823814}
+  - component: {fileID: 114878314020901198}
+  m_Layer: 0
+  m_Name: Weapon20
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4595585353861895
+Transform:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1511753131691423}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114598336461823814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1511753131691423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2a468cdf2d9c064bac1b8d244d91d60, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  typeForLow: 9
+  InShopEffects:
+  zoomShop: 0
+  isSlowdown: 0
+  slowdownCoeff: 0
+  slowdownTime: 0
+  noFillObjects: []
+  typeTracer: 0
+  _innerPars: {fileID: 0}
+  typeDead: 0
+  gunFlash: {fileID: 0}
+  gunFlashDouble: []
+  lengthForShot: 0.6500001
+  damageByTier:
+  - 2.6000004
+  - 4.5500007
+  - 4.5500007
+  - 4.5500007
+  - 4.5500007
+  - 4.5500007
+  dpses:
+  - 4
+  - 7
+  - 7
+  - 7
+  - 7
+  - 7
+  tier: 1
+  categoryNabor: 3
+  isGrenadeWeapon: 0
+  fireRateShop: 92
+  CapacityShop: 0
+  mobilityShop: 100
+  filterMap: 01000000
+  alternativeName: Weapon9
+  isBurstShooting: 0
+  countShootInBurst: 3
+  delayInBurstShooting: 1
+  isDaterWeapon: 0
+  daterMessage:
+  ammoInClip: 0
+  InitialAmmo: 0
+  maxAmmo: 0
+  ammoForBonusShotMelee: 10
+  isMelee: 1
+  isRoundMelee: 0
+  radiusRoundMelee: 5
+  isLoopShoot: 0
+  isShotGun: 0
+  isDoubleShot: 0
+  countShots: 15
+  isShotMelee: 0
+  isZooming: 0
+  isMagic: 0
+  flamethrower: 0
+  bulletExplode: 0
+  bazooka: 0
+  countInSeriaBazooka: 1
+  stepTimeInSeriaBazooka: 0.2
+  railgun: 0
+  railName: Weapon77
+  freezer: 0
+  countReflectionRay: 1
+  grenadeLauncher: 0
+  bazookaExplosionName: Explosion1
+  bazookaExplosionRadius: 5
+  bazookaExplosionRadiusSelf: 2.5
+  bazookaImpulseRadius: 6
+  impulseForce: 50
+  impulseForceSelf: 133.4
+  fieldOfViewZomm: 75
+  range: 3
+  damage: 150
+  speedModifier: 1
+  Probability: 0
+  damageRange: {x: -70, y: 70}
+  gunPosition: {x: 0, y: -1.7, z: 0}
+  inAppExtensionModifier: 10
+  meleeAngle: 45
+  multiplayerDamage: 2.6000004
+  meleeAttackTimeModifier: 0.56
+  startZone: {x: 8, y: 8}
+  tekKoof: 1
+  upKoofFire: 0.5
+  maxKoof: 4
+  downKoofFirst: 0.2
+  downKoof: 0.2
+  campaignOnly: 0
+  rocketNum: 0
+  scopeNum: 0
+  scaleShop: 140.685
+  positionShop: {x: -9.244629, y: -18.93156, z: 0.47885787}
+  rotationShop: {x: 59.999996, y: 120.00001, z: -3.4150946E-06}
+  localizeWeaponKey: Key_0638
+  DPSRememberWhenGet: 0
+--- !u!114 &114878314020901198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1511753131691423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd3169b9d20f2ef48be1c020bbc6fc92, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  _dataId: 5

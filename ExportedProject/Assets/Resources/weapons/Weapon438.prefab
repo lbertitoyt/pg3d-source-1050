@@ -1,0 +1,215 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1207721075666530}
+  m_IsPrefabParent: 1
+--- !u!1 &1207721075666530
+GameObject:
+  m_ObjectHideFlags: 0
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4892981980724330}
+  - component: {fileID: 114091110648154310}
+  - component: {fileID: 114092156626643895}
+  - component: {fileID: 114317036699611847}
+  m_Layer: 0
+  m_Name: Weapon438
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4892981980724330
+Transform:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1207721075666530}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4252323046334231}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114091110648154310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1207721075666530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2a468cdf2d9c064bac1b8d244d91d60, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  typeForLow: 21
+  InShopEffects: 020000000c00000000000000
+  zoomShop: 2
+  isSlowdown: 0
+  slowdownCoeff: 0
+  slowdownTime: 0
+  noFillObjects: []
+  typeTracer: 0
+  _innerPars: {fileID: 0}
+  typeDead: 0
+  gunFlash: {fileID: 0}
+  gunFlashDouble: []
+  lengthForShot: 0.5166667
+  damageByTier:
+  - 4.6500006
+  - 5.683334
+  - 5.683334
+  - 5.683334
+  - 5.683334
+  - 5.683334
+  dpses:
+  - 9
+  - 11
+  - 11
+  - 11
+  - 11
+  - 11
+  tier: 1
+  categoryNabor: 4
+  isGrenadeWeapon: 0
+  fireRateShop: 91
+  CapacityShop: 18
+  mobilityShop: 100
+  filterMap:
+  alternativeName: Weapon331
+  isBurstShooting: 0
+  countShootInBurst: 3
+  delayInBurstShooting: 1
+  isDaterWeapon: 0
+  daterMessage:
+  ammoInClip: 18
+  InitialAmmo: 54
+  maxAmmo: 108
+  ammoForBonusShotMelee: 10
+  isMelee: 0
+  isRoundMelee: 0
+  radiusRoundMelee: 5
+  isLoopShoot: 0
+  isShotGun: 0
+  isDoubleShot: 0
+  countShots: 15
+  isShotMelee: 0
+  isZooming: 0
+  isMagic: 0
+  flamethrower: 0
+  bulletExplode: 0
+  bazooka: 1
+  countInSeriaBazooka: 1
+  stepTimeInSeriaBazooka: 0.2
+  railgun: 0
+  railName: Weapon77
+  freezer: 0
+  countReflectionRay: 1
+  grenadeLauncher: 0
+  bazookaExplosionName: Explosion40
+  bazookaExplosionRadius: 1.5
+  bazookaExplosionRadiusSelf: 0
+  bazookaImpulseRadius: 0
+  impulseForce: 50
+  impulseForceSelf: 133.4
+  fieldOfViewZomm: 37.5
+  range: 3
+  damage: 125
+  speedModifier: 1
+  Probability: 0
+  damageRange: {x: -5, y: 5}
+  gunPosition: {x: 0, y: -1.7, z: 0}
+  inAppExtensionModifier: 10
+  meleeAngle: 45
+  multiplayerDamage: 4.6500006
+  meleeAttackTimeModifier: 0.57
+  startZone: {x: 25, y: 25}
+  tekKoof: 1
+  upKoofFire: 0.25
+  maxKoof: 5
+  downKoofFirst: 0.25
+  downKoof: 0.5
+  campaignOnly: 0
+  rocketNum: 49
+  scopeNum: 1
+  scaleShop: 220
+  positionShop: {x: -4.138672, y: 0.6482391, z: -24.71589}
+  rotationShop: {x: -60.00003, y: -60, z: 180}
+  localizeWeaponKey: Key_2156
+  DPSRememberWhenGet: 0
+--- !u!114 &114092156626643895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1207721075666530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56cf8d08ebac8094c993e59230fd6238, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  gunFlashObj: {fileID: 0}
+  timeFireAction: 0.1
+--- !u!114 &114317036699611847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1207721075666530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd3169b9d20f2ef48be1c020bbc6fc92, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  _dataId: 10
+--- !u!1 &1795645989253340
+GameObject:
+  m_ObjectHideFlags: 0
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4252323046334231}
+  m_Layer: 0
+  m_Name: BulletSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4252323046334231
+Transform:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1795645989253340}
+  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: -0.5}
+  m_LocalPosition: {x: 0.2, y: 1.444, z: 1.447}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4161136870014614}
+  m_Father: {fileID: 4892981980724330}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -90, y: -90, z: 0}
+--- !u!1 &1594272022560764
+GameObject:
+  m_ObjectHideFlags: 0
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4161136870014614}
+  m_Layer: 0
+  m_Name: GunFlash
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4161136870014614
+Transform:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1594272022560764}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4252323046334231}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}

@@ -1,0 +1,142 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1247459000930264}
+  m_IsPrefabParent: 1
+--- !u!1 &1247459000930264
+GameObject:
+  m_ObjectHideFlags: 0
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4561985347898403}
+  - component: {fileID: 33441242514876668}
+  - component: {fileID: 65570213825910733}
+  - component: {fileID: 114588272216963993}
+  - component: {fileID: 54039568574752669}
+  m_Layer: 27
+  m_Name: BotBullet_SpiderRider_Arrow
+  m_TagString: Bullet
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &4561985347898403
+Transform:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1247459000930264}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4025938537249689}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!33 &33441242514876668
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1247459000930264}
+  m_Mesh: {fileID: 4300000, guid: e187ce9b03bcb9946b8df818aa42e104, type: 2}
+--- !u!65 &65570213825910733
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1247459000930264}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.04, y: 0.04, z: 0.66}
+  m_Center: {x: 0, y: -0, z: 0.33}
+--- !u!114 &114588272216963993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1247459000930264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c82e43e5dadc754683b8bbd6808bb25, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+--- !u!54 &54039568574752669
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1247459000930264}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 2
+--- !u!1 &1327407568823815
+GameObject:
+  m_ObjectHideFlags: 0
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4025938537249689}
+  - component: {fileID: 33697461829221259}
+  - component: {fileID: 23150795125754204}
+  m_Layer: 0
+  m_Name: SpiderRider_Arrow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4025938537249689
+Transform:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1327407568823815}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4561985347898403}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -90, y: -0, z: 0}
+--- !u!33 &33697461829221259
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1327407568823815}
+  m_Mesh: {fileID: 4300000, guid: e187ce9b03bcb9946b8df818aa42e104, type: 2}
+--- !u!23 &23150795125754204
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1327407568823815}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: c7f0d7c48c83dc54685f7fc034290de3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0

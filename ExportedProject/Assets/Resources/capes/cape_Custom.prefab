@@ -1,0 +1,148 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1327494624202568}
+  m_IsPrefabParent: 1
+--- !u!1 &1327494624202568
+GameObject:
+  m_ObjectHideFlags: 0
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4817214820938366}
+  - component: {fileID: 111343232656483705}
+  - component: {fileID: 114570939770884885}
+  - component: {fileID: 114023625190153835}
+  m_Layer: 0
+  m_Name: cape_Custom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4817214820938366
+Transform:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1327494624202568}
+  m_LocalRotation: {x: 1.5454312E-08, y: -0.7071068, z: 1.5454312E-08, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4975535415421408}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 2.5044783E-06, y: 90, z: 0}
+--- !u!111 &111343232656483705
+Animation:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1327494624202568}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 0c7362a53838b314494ca41f1898bb15, type: 2}
+  - {fileID: 7400000, guid: d7ad3c84e288d414eb4a8e4c88b9dd4e, type: 2}
+  - {fileID: 7400000, guid: 6c0a3485799b32c4d94d79f31b65cb87, type: 2}
+  - {fileID: 7400000, guid: dbe8fb2c03e59444fb10529cded814a3, type: 2}
+  - {fileID: 7400000, guid: 2dec78562659d54439275b8a6fd29958, type: 2}
+  - {fileID: 7400000, guid: 51ca63feba02f1344be75f61be5357f8, type: 2}
+  - {fileID: 7400000, guid: 3f20e163cefea274b8cab873d74a01e9, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!114 &114570939770884885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1327494624202568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecff68b75a07eb4dac1d19ed57be75a, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  shouldLoadTexture: 1
+--- !u!114 &114023625190153835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1327494624202568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a416b833b738de2479b17baf0c150812, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  tier: 10
+  league: 1
+  scaleShop: 150
+  positionShop: {x: -1.02124, y: -0.06235504, z: 0.1844832}
+  rotationShop: {x: 0, y: 30, z: -15}
+  localizeKey: Key_0746
+--- !u!1 &1590900654150927
+GameObject:
+  m_ObjectHideFlags: 0
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4975535415421408}
+  - component: {fileID: 33663663827413450}
+  - component: {fileID: 23503003355565730}
+  m_Layer: 0
+  m_Name: cape
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4975535415421408
+Transform:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1590900654150927}
+  m_LocalRotation: {x: 0.05653127, y: 0.7048434, z: -0.05653127, w: 0.7048434}
+  m_LocalPosition: {x: -0.14626159, y: 1.4976315, z: 0.009140319}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4817214820938366}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 9.171072, y: -90, z: 0}
+--- !u!33 &33663663827413450
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1590900654150927}
+  m_Mesh: {fileID: 4300000, guid: d6e3e29814538294b9abf95889526e80, type: 2}
+--- !u!23 &23503003355565730
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1590900654150927}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 25f31048eb5583541ad468e85a781ac8, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0

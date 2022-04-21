@@ -1,0 +1,270 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!104 &8
+RenderSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 7
+  m_Fog: 0
+  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_FogMode: 3
+  m_FogDensity: 0.01
+  m_LinearFogStart: 0
+  m_LinearFogEnd: 300
+  m_AmbientSkyColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+  m_AmbientEquatorColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+  m_AmbientGroundColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+  m_AmbientIntensity: 1
+  m_AmbientMode: 3
+  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
+  m_SkyboxMaterial: {fileID: 0}
+  m_HaloStrength: 0.5
+  m_FlareStrength: 1
+  m_FlareFadeSpeed: 3
+  m_HaloTexture: {fileID: 0}
+  m_SpotCookie: {fileID: 2800000, guid: 0000000deadbeef15deadf00d0000000, type: 3}
+  m_DefaultReflectionMode: 0
+  m_DefaultReflectionResolution: 128
+  m_ReflectionBounces: 1
+  m_ReflectionIntensity: 1
+  m_CustomReflection: {fileID: 0}
+  m_Sun: {fileID: 0}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+--- !u!157 &9
+LightmapSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 11
+  m_GIWorkflowMode: 1
+  m_GISettings:
+    serializedVersion: 2
+    m_BounceScale: 1
+    m_IndirectOutputScale: 1
+    m_AlbedoBoost: 1
+    m_TemporalCoherenceThreshold: 1
+    m_EnvironmentLightingMode: 0
+    m_EnableBakedLightmaps: 1
+    m_EnableRealtimeLightmaps: 0
+  m_UseShadowmask: 1
+--- !u!1 &1
+GameObject:
+  m_ObjectHideFlags: 0
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 3}
+  - component: {fileID: 10}
+  - component: {fileID: 7}
+  m_Layer: 0
+  m_Name: MenuBackgroundMusic
+  m_TagString: MenuBackgroundMusic
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &2
+GameObject:
+  m_ObjectHideFlags: 0
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4}
+  - component: {fileID: 5}
+  - component: {fileID: 6}
+  - component: {fileID: 12}
+  - component: {fileID: 11}
+  m_Layer: 0
+  m_Name: SwitcherController
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3
+Transform:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.0064712763, y: 1.332657, z: 0.24336626}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!4 &4
+Transform:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 2}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!20 &5
+Camera:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 2}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0.019607844}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 100
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 0
+  m_AllowMSAA: 0
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!81 &6
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 2}
+  m_Enabled: 1
+--- !u!82 &7
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 48b89f5e3b9f02e4d8a2e22ca814c1f5, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!114 &10
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80c9d9f8a84b9414087620c549303c81, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+--- !u!114 &11
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 2}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c31beef43fa58094a8bcfc110f3fd159, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  inAppGameObjectPrefab: {fileID: 1729178221979281, guid: f9a64aea8e1745743b0416e58b8f82b3, type: 2}
+--- !u!114 &12
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 2}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc697b6e754178b42a18e2c5332e8790, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  coinsShopPrefab: {fileID: 1192347096065480, guid: a9af2820fabbc7045868befbe76847d6, type: 2}
+  nickStackPrefab: {fileID: 1574864066656729, guid: e3db62501cd80ee4280b5838e1bf6522, type: 2}
+  skinsManagerPrefab: {fileID: 1526468110127469, guid: e96e9c07dc4bdb543b2784b0a3be3344, type: 2}
+  ExperienceControllerPrefab: {fileID: 1436980663297122, guid: 5c355c6d6b4e0e440ad150243bad4df9, type: 2}
+  weaponManagerPrefab: {fileID: 1735095716544900, guid: 7ad0a1f2b5fd14949acfc191c48e8aa1, type: 2}
+  flurryPrefab: {fileID: 0}
+  experienceGuiPrefab: {fileID: 1202995349046809, guid: 30a1e475c6cd71941b56788579c294fd, type: 2}
+  bankGuiPrefab: {fileID: 1742848250061962, guid: fe67031143fa0bf43bf10773df403fc6, type: 2}
+  freeAwardGuiPrefab: {fileID: 1948912164120221, guid: ddaf41ca59e52fd47ac578f7e86f14ff, type: 2}
+  buttonClickSoundPrefab: {fileID: 1359184916528936, guid: ee396fa4a88b6d04288d70f1628913ae, type: 2}
+  faceBookControllerPrefab: {fileID: 1568867072665348, guid: 4a84883a3b1e4064ab092a60bf095941, type: 2}
+  licenseVerificationControllerPrefab: {fileID: 1370436119164968, guid: 67dc4a98f3dec4c40ae74c2844085ad2, type: 2}
+  potionsControllerPrefab: {fileID: 1154066639354905, guid: 4e0dab90d15bea247948653259262ad1, type: 2}
+  protocolListGetterPrefab: {fileID: 1776777731702059, guid: 1dba4edc6c37e6a469eb7160f93bd894, type: 2}
+  updateCheckerPrefab: {fileID: 1932352170449774, guid: 0826adfcf3c62a141b233ccb6231447f, type: 2}
+  promoActionsManagerPrefab: {fileID: 1161909578680782, guid: 3af1a6ca590c5334b8ce0d993747f3e5, type: 2}
+  starterPackManagerPrefab: {fileID: 1873205936161390, guid: ff026c438545b1749949698abcef71e2, type: 2}
+  tempItemsControllerPrefab: {fileID: 1667947024120116, guid: 5cad37662fa7e11408b77d474a18b128, type: 2}
+  remotePushNotificationControllerPrefab: {fileID: 1146110929583728, guid: a81b663dbd8dbd847afe1c2cf4bdf1f3, type: 2}
+  premiumAccountControllerPrefab: {fileID: 1927550386742084, guid: dbdcc71cfe145f64e9a7bb399dde6e13, type: 2}
+  twitterControllerPrefab: {fileID: 1402126073602219, guid: 7fdf747a43a82c34bb23ec0c1ca5f476, type: 2}
+  sponsorPayPluginHolderPrefab: {fileID: 0}
+  giftControllerPrefab: {fileID: 1413907052799321, guid: 9c292bad7782443479db067b17dce271, type: 2}
+  disabler: {fileID: 1826567705011948, guid: 70abe703089832c48af5a453bf1614d6, type: 2}
+  sceneInfoController: {fileID: 1544097509207084, guid: 2c654bc1dfc37e244a1c0a60ff29a8c5, type: 2}

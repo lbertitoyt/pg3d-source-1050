@@ -1,0 +1,155 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1273603682128159}
+  m_IsPrefabParent: 1
+--- !u!1 &1273603682128159
+GameObject:
+  m_ObjectHideFlags: 0
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4683876538065068}
+  - component: {fileID: 33325206000973426}
+  - component: {fileID: 23471975688040668}
+  - component: {fileID: 111921329853256041}
+  m_Layer: 0
+  m_Name: Granade
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4683876538065068
+Transform:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1273603682128159}
+  m_LocalRotation: {x: -0.4885739, y: 0.54733175, z: 0.48437205, w: 0.47655767}
+  m_LocalPosition: {x: 0.34809202, y: 1.6548246, z: 0.5822732}
+  m_LocalScale: {x: 1.0000002, y: 1.0000001, z: 0.9999999}
+  m_Children:
+  - {fileID: 4638283564733836}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 139.85909, y: -84.25278, z: 133.06375}
+--- !u!33 &33325206000973426
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1273603682128159}
+  m_Mesh: {fileID: 4300000, guid: 50e64a2bda908d34fa514b04d57af8bf, type: 2}
+--- !u!23 &23471975688040668
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1273603682128159}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: de530ffee2b08244185ae482f58663bd, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!111 &111921329853256041
+Animation:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1273603682128159}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 69a4dfc0c87949741b33153e08742265, type: 2}
+  - {fileID: 7400000, guid: 07c21b781f7fa6e4294cb87e24d725f4, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!1 &1916632065419685
+GameObject:
+  m_ObjectHideFlags: 0
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4638283564733836}
+  - component: {fileID: 33789589568688567}
+  - component: {fileID: 23809864879718565}
+  m_Layer: 0
+  m_Name: Cheka
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4638283564733836
+Transform:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1916632065419685}
+  m_LocalRotation: {x: 0.1742549, y: -0.76054585, z: -0.017761273, w: 0.6252118}
+  m_LocalPosition: {x: 0.041047428, y: 9.475578E-08, z: -0.020190729}
+  m_LocalScale: {x: 1.8651131, y: 1.8651139, z: 1.8651137}
+  m_Children: []
+  m_Father: {fileID: 4683876538065068}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 131.6195, y: 70.87647, z: 118.73328}
+--- !u!33 &33789589568688567
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1916632065419685}
+  m_Mesh: {fileID: 4300000, guid: 72975ae009c93a74abbe23983781fc5a, type: 2}
+--- !u!23 &23809864879718565
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1916632065419685}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: de530ffee2b08244185ae482f58663bd, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
