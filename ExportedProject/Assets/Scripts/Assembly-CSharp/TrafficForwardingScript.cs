@@ -38,7 +38,7 @@ internal sealed class TrafficForwardingScript : MonoBehaviour
 	internal IEnumerator GetTrafficForwardingConfigCoroutine()
 	{
 		_trafficForwardingConfigTimestamp = Time.realtimeSinceStartup;
-		if (((System.Threading.Tasks.Task)_trafficForwardingPromise.get_Task()).get_IsCompleted())
+		if (((System.Threading.Tasks.Task)_trafficForwardingPromise.Task).IsCompleted)
 		{
 			_trafficForwardingPromise = new TaskCompletionSource<TrafficForwardingInfo>();
 		}
@@ -131,6 +131,6 @@ internal sealed class TrafficForwardingScript : MonoBehaviour
 
 	internal System.Threading.Tasks.Task<TrafficForwardingInfo> GetTrafficForwardingInfo()
 	{
-		return _trafficForwardingPromise.get_Task();
+		return _trafficForwardingPromise.Task;
 	}
 }

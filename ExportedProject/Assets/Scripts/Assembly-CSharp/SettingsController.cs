@@ -121,8 +121,8 @@ internal sealed class SettingsController : MonoBehaviour
 							promise.TrySetResult(true);
 						}));
 					});
-					System.Threading.Tasks.Task<bool> future = promise.get_Task();
-					while (!((System.Threading.Tasks.Task)future).get_IsCompleted())
+					System.Threading.Tasks.Task<bool> future = promise.Task;
+					while (!((System.Threading.Tasks.Task)future).IsCompleted)
 					{
 						yield return null;
 					}
@@ -606,18 +606,9 @@ internal sealed class SettingsController : MonoBehaviour
 					if (Application.isEditor)
 					{
 						Debug.Log("Simulating sync...");
-						IEnumerator routine = PurchasesSynchronizer.Instance.SimulateSynchronization(callback);
-						CoroutineRunner.Instance.StartCoroutine(routine);
 					}
 					else
 					{
-						if (!PurchasesSynchronizer.Instance.SynchronizeIfAuthenticated(callback))
-						{
-							syncButton.Do(delegate(UIButton s)
-							{
-								s.isEnabled = true;
-							});
-						}
 						ProgressSynchronizer.Instance.SynchronizeIfAuthenticated(delegate
 						{
 						});

@@ -3,7 +3,6 @@ using System.Collections;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
-using GooglePlayGames.BasicApi.SavedGame;
 using UnityEngine;
 
 namespace Rilisoft
@@ -59,7 +58,6 @@ namespace Rilisoft
 			}
 			if (BuildSettings.BuildTargetPlatform == RuntimePlatform.Android && Defs.AndroidEdition == Defs.RuntimeAndroidEdition.GoogleLite)
 			{
-				return CoroutineRunner.Instance.StartCoroutine(PushGoogleCoroutine());
 			}
 			return null;
 		}
@@ -85,9 +83,6 @@ namespace Rilisoft
 			}
 			string thisName = string.Format(CultureInfo.InvariantCulture, "TrophiesSynchronizer.PullGoogleCoroutine('{0}')", (!pullOnly) ? "sync" : "pull");
 			ScopeLogger scopeLogger = new ScopeLogger(thisName, Defs.IsDeveloperBuild && !Application.isEditor);
-			try
-			{
-				TrophiesSynchronizerGoogleSavedGameFacade googleSavedGamesFacade = default(TrophiesSynchronizerGoogleSavedGameFacade);
 				WaitForSeconds delay = new WaitForSeconds(30f);
 				int i = 0;
 				while (true)
@@ -95,87 +90,20 @@ namespace Rilisoft
 					string callee = string.Format(CultureInfo.InvariantCulture, "Pull and wait ({0})", i);
 					using (ScopeLogger logger = new ScopeLogger(thisName, callee, Defs.IsDeveloperBuild && !Application.isEditor))
 					{
-						System.Threading.Tasks.Task<GoogleSavedGameRequestResult<TrophiesMemento>> future = googleSavedGamesFacade.Pull();
-						while (!((System.Threading.Tasks.Task)future).get_IsCompleted())
-						{
-							yield return null;
-						}
-						logger.Dispose();
-						if (((System.Threading.Tasks.Task)future).get_IsFaulted())
-						{
-							Exception ex = (Exception)(((object)((System.Threading.Tasks.Task)future).get_Exception().get_InnerExceptions().FirstOrDefault()) ?? ((object)((System.Threading.Tasks.Task)future).get_Exception()));
-							Debug.LogWarning("Failed to pull trophies with exception: " + ex.Message);
-							yield return delay;
-						}
-						else
-						{
-							SavedGameRequestStatus requestStatus = future.get_Result().RequestStatus;
-							if (requestStatus == SavedGameRequestStatus.Success)
-							{
-								TrophiesMemento cloudTrophies = future.get_Result().Value;
-								int localTrophiesNegative = Storager.getInt("RatingNegative", false);
-								int localTrophiesPositive = Storager.getInt("RatingPositive", false);
-								bool localDirty = cloudTrophies.TrophiesNegative > localTrophiesNegative || cloudTrophies.TrophiesPositive > localTrophiesPositive;
-								if (cloudTrophies.TrophiesNegative > localTrophiesNegative)
-								{
-									Storager.setInt("RatingNegative", cloudTrophies.TrophiesNegative, false);
-								}
-								if (cloudTrophies.TrophiesPositive > localTrophiesPositive)
-								{
-									Storager.setInt("RatingPositive", cloudTrophies.TrophiesPositive, false);
-								}
-								EventHandler handler = this.Updated;
-								if (localDirty && handler != null)
-								{
-									handler(this, EventArgs.Empty);
-								}
-								bool cloudDirty = cloudTrophies.TrophiesNegative < localTrophiesNegative || cloudTrophies.TrophiesPositive < localTrophiesPositive;
-								if (Defs.IsDeveloperBuild)
-								{
-									Debug.LogFormat("[Trophies] Succeeded to pull trophies: {0}, 'pullOnly':{1}, 'conflicted':{2}, 'cloudDirty':{3}", cloudTrophies, pullOnly, cloudTrophies.Conflicted, cloudDirty);
-								}
-								if (pullOnly || (!cloudTrophies.Conflicted && !cloudDirty))
-								{
-									break;
-								}
-								ScopeLogger scopeLogger2 = new ScopeLogger("TrophiesSynchronizer.PullGoogleCoroutine()", "PushGoogleCoroutine(conflict)", Defs.IsDeveloperBuild && !Application.isEditor);
-								try
-								{
-									IEnumerator enumerator = PushGoogleCoroutine();
-									while (enumerator.MoveNext())
-									{
-										yield return null;
-									}
-									break;
-								}
-								finally
-								{
-									scopeLogger2.Dispose();
-								}
-							}
-							Debug.LogWarning("Failed to push trophies with status: " + requestStatus);
-							yield return delay;
-						}
+						ScopeLogger scopeLogger2 = new ScopeLogger("TrophiesSynchronizer.PullGoogleCoroutine()", "PushGoogleCoroutine(conflict)", Defs.IsDeveloperBuild && !Application.isEditor);
+							scopeLogger2.Dispose();
 					}
-					i++;
+					Debug.LogWarning("Failed to push trophies with status: null coz i deleted the code lol");
+					yield return delay;
 				}
-			}
-			finally
-			{
-				scopeLogger.Dispose();
-			}
 		}
+	}
 
-		internal IEnumerator PushGoogleCoroutine()
+		/*internal IEnumerator PushGoogleCoroutine()
 		{
-			if (!Ready)
-			{
-				yield break;
-			}
 			ScopeLogger scopeLogger = new ScopeLogger("TrophiesSynchronizer.PushGoogleCoroutine()", Defs.IsDeveloperBuild);
 			try
 			{
-				TrophiesSynchronizerGoogleSavedGameFacade googleSavedGamesFacade = default(TrophiesSynchronizerGoogleSavedGameFacade);
 				WaitForSeconds delay = new WaitForSeconds(30f);
 				int i = 0;
 				while (true)
@@ -216,12 +144,12 @@ namespace Rilisoft
 						}
 					}
 					i++;
-				}
+				} 
 			}
 			finally
 			{
 				scopeLogger.Dispose();
 			}
-		}
-	}
+		} 
+	} */
 }

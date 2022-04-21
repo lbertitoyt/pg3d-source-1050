@@ -2,9 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using GooglePlayGames;
-using GooglePlayGames.BasicApi;
-using GooglePlayGames.BasicApi.SavedGame;
 using Rilisoft.MiniJson;
 using UnityEngine;
 
@@ -179,88 +176,7 @@ namespace Rilisoft
 
 		private void SynchronizeIfAuthenticatedWithSavedGamesService(Action callback)
 		{
-			if (PlayGamesPlatform.Instance.SavedGame == null)
-			{
-				Debug.LogWarning("Saved game client is null.");
-				return;
-			}
-			List<string> list = new List<string>();
-			Action<SavedGameRequestStatus, ISavedGameMetadata> completedCallback = delegate(SavedGameRequestStatus openStatus, ISavedGameMetadata openMetadata)
-			{
-				Debug.LogFormat("****** Open '{0}': {1} '{2}'", "Progress", openStatus, openMetadata.GetDescription());
-				if (openStatus == SavedGameRequestStatus.Success)
-				{
-					Debug.LogFormat("****** Trying to read '{0}' '{1}'...", "Progress", openMetadata.GetDescription());
-					PlayGamesPlatform.Instance.SavedGame.ReadBinaryData(openMetadata, delegate(SavedGameRequestStatus readStatus, byte[] data)
-					{
-						string string3 = Encoding.UTF8.GetString(data ?? new byte[0]);
-						Debug.Log(string.Format("****** Read '{0}': {1} '{2}'    '{3}'", "Progress", readStatus, openMetadata.GetDescription(), string3));
-						if (readStatus == SavedGameRequestStatus.Success)
-						{
-							Dictionary<string, Dictionary<string, int>> dictionary2 = CampaignProgress.DeserializeProgress(string3);
-							if (dictionary2 == null)
-							{
-								Debug.LogWarning("serverProgress == null");
-							}
-							else
-							{
-								HashSet<string> hashSet = new HashSet<string>(CampaignProgress.boxesLevelsAndStars.SelectMany((KeyValuePair<string, Dictionary<string, int>> kv) => kv.Value.Keys));
-								hashSet.ExceptWith(dictionary2.SelectMany((KeyValuePair<string, Dictionary<string, int>> kv) => kv.Value.Keys));
-								string text = Json.Serialize(hashSet.ToArray());
-								MergeUpdateLocalProgress(dictionary2);
-								string outgoingProgressString = CampaignProgress.GetCampaignProgressString();
-								Debug.Log(string.Format("****** Trying to write '{0}': '{1}'...", "Progress", outgoingProgressString));
-								byte[] bytes2 = Encoding.UTF8.GetBytes(outgoingProgressString);
-								string description2 = string.Format("Added levels by '{0}': {1}", SystemInfo.deviceModel, text.Substring(0, Math.Min(32, text.Length)));
-								SavedGameMetadataUpdate updateForMetadata2 = default(SavedGameMetadataUpdate.Builder).WithUpdatedDescription(description2).Build();
-								PlayGamesPlatform.Instance.SavedGame.CommitUpdate(openMetadata, updateForMetadata2, bytes2, delegate(SavedGameRequestStatus writeStatus, ISavedGameMetadata closeMetadata)
-								{
-									Debug.Log(string.Format("****** Written '{0}': {1} '{2}'    '{3}'", "Progress", writeStatus, closeMetadata.GetDescription(), outgoingProgressString));
-									callback();
-								});
-							}
-						}
-					});
-				}
-			};
-			ConflictCallback conflictCallback = delegate(IConflictResolver resolver, ISavedGameMetadata original, byte[] originalData, ISavedGameMetadata unmerged, byte[] unmergedData)
-			{
-				string @string = Encoding.UTF8.GetString(originalData);
-				string string2 = Encoding.UTF8.GetString(unmergedData);
-				ISavedGameMetadata savedGameMetadata = null;
-				if (@string.Length > string2.Length)
-				{
-					savedGameMetadata = original;
-					resolver.ChooseMetadata(savedGameMetadata);
-					Debug.Log(string.Format("****** Partially resolved using original metadata '{0}': '{1}'", "Progress", original.GetDescription()));
-				}
-				else
-				{
-					savedGameMetadata = unmerged;
-					resolver.ChooseMetadata(savedGameMetadata);
-					Debug.Log(string.Format("****** Partially resolved using unmerged metadata '{0}': '{1}'", "Progress", unmerged.GetDescription()));
-				}
-				string mergedString = DictionaryLoadedListener.MergeProgress(@string, string2);
-				Dictionary<string, Dictionary<string, int>> dictionary = CampaignProgress.DeserializeProgress(mergedString);
-				if (dictionary == null)
-				{
-					Debug.LogWarning("mergedProgress == null");
-				}
-				else
-				{
-					MergeUpdateLocalProgress(dictionary);
-					string description = string.Format("Merged by '{0}': '{1}' and '{2}'", SystemInfo.deviceModel, original.GetDescription(), unmerged.GetDescription());
-					SavedGameMetadataUpdate updateForMetadata = default(SavedGameMetadataUpdate.Builder).WithUpdatedDescription(description).Build();
-					byte[] bytes = Encoding.UTF8.GetBytes(mergedString);
-					PlayGamesPlatform.Instance.SavedGame.CommitUpdate(savedGameMetadata, updateForMetadata, bytes, delegate(SavedGameRequestStatus writeStatus, ISavedGameMetadata closeMetadata)
-					{
-						Debug.LogFormat("****** Written '{0}': {1} '{2}'    '{3}'", "Progress", writeStatus, closeMetadata.GetDescription(), mergedString);
-						callback();
-					});
-				}
-			};
-			Debug.LogFormat("****** Trying to open '{0}'...", "Progress");
-			PlayGamesPlatform.Instance.SavedGame.OpenWithManualConflictResolution("Progress", DataSource.ReadNetworkOnly, true, conflictCallback, completedCallback);
+			// um here was sync code lol
 		}
 
 		private static void MergeUpdateLocalProgress(IDictionary<string, Dictionary<string, int>> incomingProgress)

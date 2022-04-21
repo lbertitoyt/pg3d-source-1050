@@ -1,6 +1,5 @@
-using System;
+/*using System;
 using System.Collections.Generic;
-using GooglePlayGames.BasicApi.SavedGame;
 
 namespace Rilisoft
 {
@@ -61,3 +60,4 @@ namespace Rilisoft
 		}
 	}
 }
+*/

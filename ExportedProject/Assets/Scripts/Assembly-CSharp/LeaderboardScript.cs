@@ -160,7 +160,7 @@ internal sealed class LeaderboardScript : MonoBehaviour
 	{
 		get
 		{
-			return _currentRequestPromise.Map((TaskCompletionSource<string> p) => p.get_Task());
+			return _currentRequestPromise.Map((TaskCompletionSource<string> p) => p.Task);
 		}
 	}
 
@@ -994,7 +994,7 @@ internal sealed class LeaderboardScript : MonoBehaviour
 			_currentRequestPromise = new TaskCompletionSource<string>();
 			FriendsController.sharedController.StartCoroutine(LoadLeaderboardsCoroutine(playerId, _currentRequestPromise));
 		}
-		if (!((System.Threading.Tasks.Task)CurrentRequest).get_IsCompleted())
+		if (!((System.Threading.Tasks.Task)CurrentRequest).IsCompleted)
 		{
 			string response2 = PlayerPrefs.GetString(LeaderboardsResponseCache, string.Empty);
 			if (string.IsNullOrEmpty(response2))
@@ -1008,21 +1008,21 @@ internal sealed class LeaderboardScript : MonoBehaviour
 				_state = GridState.Cache;
 			}
 		}
-		while (!((System.Threading.Tasks.Task)CurrentRequest).get_IsCompleted())
+		while (!((System.Threading.Tasks.Task)CurrentRequest).IsCompleted)
 		{
 			yield return null;
 		}
-		if (((System.Threading.Tasks.Task)CurrentRequest).get_IsCanceled())
+		if (((System.Threading.Tasks.Task)CurrentRequest).IsCanceled)
 		{
 			Debug.LogWarning("Request is cancelled.");
 			yield break;
 		}
-		if (((System.Threading.Tasks.Task)CurrentRequest).get_IsFaulted())
+		if (((System.Threading.Tasks.Task)CurrentRequest).IsFaulted)
 		{
-			Debug.LogException((Exception)(object)((System.Threading.Tasks.Task)CurrentRequest).get_Exception());
+			Debug.LogException((Exception)(object)((System.Threading.Tasks.Task)CurrentRequest).Exception);
 			yield break;
 		}
-		string response = CurrentRequest.get_Result();
+		string response = CurrentRequest.Result;
 		_state = GridState.FillingWithResponse;
 		yield return StartCoroutine(FillGrids(response, playerId, _state));
 		_state = GridState.Response;
@@ -1091,7 +1091,7 @@ internal sealed class LeaderboardScript : MonoBehaviour
 		{
 			throw new ArgumentNullException("requestPromise");
 		}
-		if (((System.Threading.Tasks.Task)requestPromise.get_Task()).get_IsCanceled())
+		if (((System.Threading.Tasks.Task)requestPromise.Task).IsCanceled)
 		{
 			yield break;
 		}
@@ -1121,7 +1121,7 @@ internal sealed class LeaderboardScript : MonoBehaviour
 			}
 			yield return new WaitForSeconds(secondsTillNextRequest);
 		}
-		if (((System.Threading.Tasks.Task)requestPromise.get_Task()).get_IsCanceled())
+		if (((System.Threading.Tasks.Task)requestPromise.Task).IsCanceled)
 		{
 			yield break;
 		}
@@ -1145,7 +1145,7 @@ internal sealed class LeaderboardScript : MonoBehaviour
 		}
 		while (!request.isDone)
 		{
-			if (((System.Threading.Tasks.Task)requestPromise.get_Task()).get_IsCanceled())
+			if (((System.Threading.Tasks.Task)requestPromise.Task).IsCanceled)
 			{
 				request.Dispose();
 				yield break;
@@ -1181,7 +1181,7 @@ internal sealed class LeaderboardScript : MonoBehaviour
 
 	public System.Threading.Tasks.Task GetReturnFuture()
 	{
-		if (((System.Threading.Tasks.Task)_returnPromise.get_Task()).get_IsCompleted())
+		if (((System.Threading.Tasks.Task)_returnPromise.Task).IsCompleted)
 		{
 			_returnPromise = new TaskCompletionSource<bool>();
 		}
@@ -1193,7 +1193,7 @@ internal sealed class LeaderboardScript : MonoBehaviour
 		{
 			m.BackPressed += ReturnBack;
 		});
-		return _returnPromise.get_Task();
+		return _returnPromise.Task;
 	}
 
 	private void ReturnBack(object sender, EventArgs e)

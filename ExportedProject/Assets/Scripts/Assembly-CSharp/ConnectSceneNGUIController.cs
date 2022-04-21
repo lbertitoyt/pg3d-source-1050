@@ -1011,7 +1011,7 @@ public class ConnectSceneNGUIController : MonoBehaviour
 				}
 				while (true)
 				{
-					if (((IEnumerable<System.Threading.Tasks.Task<Ad>>)FyberFacade.Instance.Requests).Any((System.Threading.Tasks.Task<Ad> r) => ((System.Threading.Tasks.Task)r).get_IsCompleted() && !((System.Threading.Tasks.Task)r).get_IsFaulted()))
+					if (((IEnumerable<System.Threading.Tasks.Task<Ad>>)FyberFacade.Instance.Requests).Any((System.Threading.Tasks.Task<Ad> r) => ((System.Threading.Tasks.Task)r).IsCompleted && !((System.Threading.Tasks.Task)r).IsFaulted))
 					{
 						if (Defs.IsDeveloperBuild)
 						{
@@ -1019,7 +1019,7 @@ public class ConnectSceneNGUIController : MonoBehaviour
 						}
 						break;
 					}
-					if (((IEnumerable<System.Threading.Tasks.Task<Ad>>)FyberFacade.Instance.Requests).All((System.Threading.Tasks.Task<Ad> r) => ((System.Threading.Tasks.Task)r).get_IsCompleted()))
+					if (((IEnumerable<System.Threading.Tasks.Task<Ad>>)FyberFacade.Instance.Requests).All((System.Threading.Tasks.Task<Ad> r) => ((System.Threading.Tasks.Task)r).IsCompleted))
 					{
 						if (Defs.IsDeveloperBuild)
 						{
@@ -1037,8 +1037,8 @@ public class ConnectSceneNGUIController : MonoBehaviour
 					}
 					yield return null;
 				}
-				List<System.Threading.Tasks.Task<Ad>> completedRequests = ((IEnumerable<System.Threading.Tasks.Task<Ad>>)FyberFacade.Instance.Requests).Where((System.Threading.Tasks.Task<Ad> r) => ((System.Threading.Tasks.Task)r).get_IsCompleted()).ToList();
-				List<System.Threading.Tasks.Task<Ad>> noOffersRequests = completedRequests.Where((System.Threading.Tasks.Task<Ad> r) => ((System.Threading.Tasks.Task)r).get_IsFaulted() && ((Exception)(object)((System.Threading.Tasks.Task)r).get_Exception()).InnerException is AdNotAwailableException).ToList();
+				List<System.Threading.Tasks.Task<Ad>> completedRequests = ((IEnumerable<System.Threading.Tasks.Task<Ad>>)FyberFacade.Instance.Requests).Where((System.Threading.Tasks.Task<Ad> r) => ((System.Threading.Tasks.Task)r).IsCompleted).ToList();
+				List<System.Threading.Tasks.Task<Ad>> noOffersRequests = completedRequests.Where((System.Threading.Tasks.Task<Ad> r) => ((System.Threading.Tasks.Task)r).IsFaulted && ((Exception)(object)((System.Threading.Tasks.Task)r).Exception).InnerException is AdNotAwailableException).ToList();
 				if (noOffersRequests.Count > 0)
 				{
 					if (Defs.IsDeveloperBuild)
@@ -1053,9 +1053,9 @@ public class ConnectSceneNGUIController : MonoBehaviour
 				}
 				if (completedRequests == null)
 				{
-					completedRequests = ((IEnumerable<System.Threading.Tasks.Task<Ad>>)FyberFacade.Instance.Requests).Where((System.Threading.Tasks.Task<Ad> r) => ((System.Threading.Tasks.Task)r).get_IsCompleted()).ToList();
+					completedRequests = ((IEnumerable<System.Threading.Tasks.Task<Ad>>)FyberFacade.Instance.Requests).Where((System.Threading.Tasks.Task<Ad> r) => ((System.Threading.Tasks.Task)r).IsCompleted).ToList();
 				}
-				List<System.Threading.Tasks.Task<Ad>> errorRequests = completedRequests.Where((System.Threading.Tasks.Task<Ad> r) => ((System.Threading.Tasks.Task)r).get_IsFaulted() && ((Exception)(object)((System.Threading.Tasks.Task)r).get_Exception()).InnerException is AdRequestException).ToList();
+				List<System.Threading.Tasks.Task<Ad>> errorRequests = completedRequests.Where((System.Threading.Tasks.Task<Ad> r) => ((System.Threading.Tasks.Task)r).IsFaulted && ((Exception)(object)((System.Threading.Tasks.Task)r).Exception).InnerException is AdRequestException).ToList();
 				if (errorRequests.Count > 0)
 				{
 					if (Defs.IsDeveloperBuild)
@@ -1091,9 +1091,9 @@ public class ConnectSceneNGUIController : MonoBehaviour
 					{
 						Storager.setInt("PendingInterstitial", 0, false);
 						isStartShowAdvert = false;
-						if (((System.Threading.Tasks.Task)t).get_IsFaulted())
+						if (((System.Threading.Tasks.Task)t).IsFaulted)
 						{
-							Debug.LogWarningFormat("[Rilisoft] Showing interstitial failed: {0}", ((Exception)(object)((System.Threading.Tasks.Task)t).get_Exception()).InnerException.Message);
+							Debug.LogWarningFormat("[Rilisoft] Showing interstitial failed: {0}", ((Exception)(object)((System.Threading.Tasks.Task)t).Exception).InnerException.Message);
 						}
 						else
 						{

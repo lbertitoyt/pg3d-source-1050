@@ -546,29 +546,9 @@ public sealed class ExpController : MonoBehaviour
 		{
 			InterfaceEnabled = false;
 		}
-		FacebookController.StoryPriority levelupPriority = FacebookController.StoryPriority.Red;
-		experienceView.levelUpPanel.shareScript.priority = levelupPriority;
-		experienceView.levelUpPanel.shareScript.shareAction = delegate
-		{
-			FacebookController.PostOpenGraphStory("reach", "level", levelupPriority, new Dictionary<string, string> { 
-			{
-				"level",
-				ExperienceController.sharedController.currentLevel.ToString()
-			} });
-		};
 		experienceView.levelUpPanel.shareScript.HasReward = true;
 		experienceView.levelUpPanel.shareScript.twitterStatus = () => string.Format("I've reached level {0} in @PixelGun3D! Come to the battle and try to defeat me! #pixelgun3d #pixelgun #3d #pg3d #fps http://goo.gl/8fzL9u", ExperienceController.sharedController.currentLevel);
 		experienceView.levelUpPanel.shareScript.EventTitle = "Level-up";
-		FacebookController.StoryPriority tierupPriority = FacebookController.StoryPriority.Green;
-		experienceView.levelUpPanelTier.shareScript.priority = tierupPriority;
-		experienceView.levelUpPanelTier.shareScript.shareAction = delegate
-		{
-			FacebookController.PostOpenGraphStory("unlock", "new weapon", tierupPriority, new Dictionary<string, string> { 
-			{
-				"new weapon",
-				(Instance.OurTier + 1).ToString()
-			} });
-		};
 		experienceView.levelUpPanelTier.shareScript.HasReward = true;
 		experienceView.levelUpPanelTier.shareScript.twitterStatus = () => "I've unlocked cool new weapons in @PixelGun3D! Let’s try them out! #pixelgun3d #pixelgun #3d #pg3d #mobile #fps http://goo.gl/8fzL9u";
 		experienceView.levelUpPanelTier.shareScript.EventTitle = "Tier-up";

@@ -172,12 +172,6 @@ public sealed class ClansGUIController : MonoBehaviour, IFriendsGUIController
 	{
 		sharedController = this;
 		RewardWindowBase component = rewardCreateClanWindow.GetComponent<RewardWindowBase>();
-		FacebookController.StoryPriority priority = FacebookController.StoryPriority.Green;
-		component.shareAction = delegate
-		{
-			FacebookController.PostOpenGraphStory("create", "clan", priority, new Dictionary<string, string> { { "mode", "create" } });
-		};
-		component.priority = priority;
 		component.twitterStatus = () => "I’ve created a CLAN in @PixelGun3D! Join my team and get ready to fight! #pixelgun3d #pixelgun #pg3d #mobile #fps http://goo.gl/8fzL9u";
 		component.EventTitle = "Created Clan";
 		component.HasReward = false;
@@ -769,7 +763,7 @@ public sealed class ClansGUIController : MonoBehaviour, IFriendsGUIController
 			dictionary.Add("Session", value2);
 			Dictionary<string, string> parameters = dictionary;
 			FlurryPluginWrapper.LogEventAndDublicateToConsole("Clan Created", parameters);
-			if ((FacebookController.FacebookSupported || TwitterController.TwitterSupported) && Storager.getInt("ShownCreateClanRewardWindowKey", false) == 0 && !Device.isPixelGunLow)
+			if ((TwitterController.TwitterSupported) && Storager.getInt("ShownCreateClanRewardWindowKey", false) == 0 && !Device.isPixelGunLow)
 			{
 				rewardCreateClanWindow.SetActive(true);
 				Storager.setInt("ShownCreateClanRewardWindowKey", 1, false);
@@ -1086,17 +1080,17 @@ public sealed class ClansGUIController : MonoBehaviour, IFriendsGUIController
 		UISprite[] array = value;
 		foreach (UISprite uISprite in array)
 		{
-			if (ClanIncomingInvitesController.CurrentRequest == null || !((System.Threading.Tasks.Task)ClanIncomingInvitesController.CurrentRequest).get_IsCompleted())
+			if (ClanIncomingInvitesController.CurrentRequest == null || !((System.Threading.Tasks.Task)ClanIncomingInvitesController.CurrentRequest).IsCompleted)
 			{
 				uISprite.gameObject.SetActive(false);
 			}
-			else if (((System.Threading.Tasks.Task)ClanIncomingInvitesController.CurrentRequest).get_IsCanceled() || ((System.Threading.Tasks.Task)ClanIncomingInvitesController.CurrentRequest).get_IsFaulted())
+			else if (((System.Threading.Tasks.Task)ClanIncomingInvitesController.CurrentRequest).IsCanceled || ((System.Threading.Tasks.Task)ClanIncomingInvitesController.CurrentRequest).IsFaulted)
 			{
 				uISprite.gameObject.SetActive(false);
 			}
 			else
 			{
-				uISprite.gameObject.SetActive(ClanIncomingInvitesController.CurrentRequest.get_Result().Count > 0);
+				uISprite.gameObject.SetActive(ClanIncomingInvitesController.CurrentRequest.Result.Count > 0);
 			}
 		}
 	}
@@ -1126,7 +1120,7 @@ public sealed class ClansGUIController : MonoBehaviour, IFriendsGUIController
 				text = LocalizationStore.Key_0348;
 			}
 		}
-		else if ((!InClan || !FriendsController.readyToOperate) && !NoClanPanel.activeInHierarchy && !CreateClanPanel.activeInHierarchy && !clanPanel.activeInHierarchy && !statisiticPanel.activeInHierarchy && !addInClanPanel.activeInHierarchy && (CurrentState != State.Inbox || (CurrentState == State.Inbox && ClanIncomingInvitesController.CurrentRequest.Filter((System.Threading.Tasks.Task<List<object>> t) => ((System.Threading.Tasks.Task)t).get_IsCompleted()) == null)))
+		else if ((!InClan || !FriendsController.readyToOperate) && !NoClanPanel.activeInHierarchy && !CreateClanPanel.activeInHierarchy && !clanPanel.activeInHierarchy && !statisiticPanel.activeInHierarchy && !addInClanPanel.activeInHierarchy && (CurrentState != State.Inbox || (CurrentState == State.Inbox && ClanIncomingInvitesController.CurrentRequest.Filter((System.Threading.Tasks.Task<List<object>> t) => ((System.Threading.Tasks.Task)t).IsCompleted) == null)))
 		{
 			text = LocalizationStore.Key_0348;
 		}

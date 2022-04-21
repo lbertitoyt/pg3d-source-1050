@@ -15,7 +15,7 @@ public class FacebookFriendsGUIController : MonoBehaviour
 
 	private void Update()
 	{
-		if (FacebookController.FacebookSupported && FacebookController.sharedController.friendsList != null && FacebookController.sharedController.friendsList.Count != 0 && FriendsController.sharedController.facebookFriendsInfo.Count == 0 && !_infoRequested && FriendsController.sharedController.GetFacebookFriendsCallback == null)
+		if (!_infoRequested && FriendsController.sharedController.GetFacebookFriendsCallback == null)
 		{
 			FriendsController.sharedController.GetFacebookFriendsInfo(GetFacebookFriendsCallback);
 			_infoRequested = true;

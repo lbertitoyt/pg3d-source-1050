@@ -60,7 +60,7 @@ public sealed class ChestBonusController : MonoBehaviour
 	private IEnumerator GetEventBonusInfoLoop(System.Threading.Tasks.Task futureToWait)
 	{
 		System.Threading.Tasks.Task futureToWait2 = default(System.Threading.Tasks.Task);
-		yield return new WaitUntil(() => futureToWait2.get_IsCompleted());
+		yield return new WaitUntil(() => futureToWait2.IsCompleted);
 		while (true)
 		{
 			yield return StartCoroutine(DownloadDataAboutBonuses());

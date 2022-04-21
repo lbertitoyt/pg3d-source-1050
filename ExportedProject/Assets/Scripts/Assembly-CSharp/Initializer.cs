@@ -124,9 +124,9 @@ public sealed class Initializer : MonoBehaviour
 
 	private void ReportWeaponStatistics()
 	{
-		if (Debug.isDebugBuild)
+		if (UnityEngine.Debug.isDebugBuild)
 		{
-			Debug.Log("Killed with weapon:    " + Json.Serialize(_killedWithWeaponMap));
+			UnityEngine.Debug.Log("Killed with weapon:    " + Json.Serialize(_killedWithWeaponMap));
 		}
 		string eventName = FlurryPluginWrapper.GetEventName("Killed With Weapon Worldwide");
 		string eventName2 = FlurryPluginWrapper.GetEventName("Killed With Weapon Worldwide (Tier 1-3)");
@@ -179,7 +179,7 @@ public sealed class Initializer : MonoBehaviour
 	{
 		if (string.IsNullOrEmpty(weapon))
 		{
-			Debug.LogError("Weapon must not be null or empty.");
+			UnityEngine.Debug.LogError("Weapon must not be null or empty.");
 			return false;
 		}
 		int value;
@@ -323,19 +323,19 @@ public sealed class Initializer : MonoBehaviour
 			empty = "gem";
 			break;
 		default:
-			Debug.LogErrorFormat("Failed to determine resource for '{0}'", bonusType);
+			UnityEngine.Debug.LogErrorFormat("Failed to determine resource for '{0}'", bonusType);
 			return null;
 		}
 		UnityEngine.Object @object = Resources.Load(empty);
 		if (@object == null)
 		{
-			Debug.LogErrorFormat("Failed to load '{0}'", empty);
+			UnityEngine.Debug.LogErrorFormat("Failed to load '{0}'", empty);
 			return null;
 		}
 		UnityEngine.Object object2 = UnityEngine.Object.Instantiate(@object, position, Quaternion.Euler(270f, 0f, 0f));
 		if (object2 == null)
 		{
-			Debug.LogErrorFormat("Failed to instantiate '{0}'", empty);
+			UnityEngine.Debug.LogErrorFormat("Failed to instantiate '{0}'", empty);
 			return null;
 		}
 		GameObject gameObject = object2 as GameObject;
@@ -346,7 +346,7 @@ public sealed class Initializer : MonoBehaviour
 		CoinBonus component = gameObject.GetComponent<CoinBonus>();
 		if (component == null)
 		{
-			Debug.LogErrorFormat("Cannot find '{0}' script.", typeof(CoinBonus).Name);
+			UnityEngine.Debug.LogErrorFormat("Cannot find '{0}' script.", typeof(CoinBonus).Name);
 			return gameObject;
 		}
 		component.BonusType = bonusType;
@@ -366,7 +366,6 @@ public sealed class Initializer : MonoBehaviour
 		ConnectSceneNGUIController.isReturnFromGame = true;
 		FriendsController.sharedController.profileInfo.Clear();
 		FriendsController.sharedController.notShowAddIds.Clear();
-		FacebookController.LogEvent("Campaign_ACHIEVED_LEVEL");
 		Defs.inRespawnWindow = false;
 		PlayerPrefs.SetInt("StartAfterDisconnect", 0);
 		PhotonNetwork.isMessageQueueRunning = true;
@@ -393,7 +392,7 @@ public sealed class Initializer : MonoBehaviour
 			}
 			catch (Exception exception)
 			{
-				Debug.LogException(exception);
+				UnityEngine.Debug.LogException(exception);
 			}
 		}
 		if (!_isMultiplayer)
@@ -456,7 +455,7 @@ public sealed class Initializer : MonoBehaviour
 				if (PlayerPrefs.GetString("TypeGame").Equals("client"))
 				{
 					bool flag2 = (Network.useNat = !Network.HavePublicAddress());
-					Debug.Log(Defs.ServerIp + " " + Network.Connect(Defs.ServerIp, 25002));
+					UnityEngine.Debug.Log(Defs.ServerIp + " " + Network.Connect(Defs.ServerIp, 25002));
 				}
 				else
 				{
@@ -717,7 +716,7 @@ public sealed class Initializer : MonoBehaviour
 		_gameSessionStopwatch.Stop();
 		if (lastGameMode == GameModeCampaign || lastGameMode == GameModeSurvival)
 		{
-			NetworkStartTable.IncreaseTimeInMode(lastGameMode, _gameSessionStopwatch.get_Elapsed().TotalMinutes);
+			NetworkStartTable.IncreaseTimeInMode(lastGameMode, _gameSessionStopwatch.Elapsed.TotalMinutes);
 		}
 		FlurryEvents.StopLoggingGameModeEvent();
 		ReportWeaponStatistics();
@@ -745,7 +744,7 @@ public sealed class Initializer : MonoBehaviour
 			{
 				if (Defs.IsDeveloperBuild)
 				{
-					Debug.Log("Setting request for interstitial advertisement.");
+					UnityEngine.Debug.Log("Setting request for interstitial advertisement.");
 				}
 				ConnectSceneNGUIController.InterstitialRequest = true;
 			}
@@ -757,7 +756,7 @@ public sealed class Initializer : MonoBehaviour
 	[Obfuscation(Exclude = true)]
 	public void goToConnect()
 	{
-		Debug.Log("goToConnect()");
+		UnityEngine.Debug.Log("goToConnect()");
 		ConnectSceneNGUIController.Local();
 	}
 
@@ -777,7 +776,7 @@ public sealed class Initializer : MonoBehaviour
 
 	public void OnLeftRoom()
 	{
-		Debug.Log("OnLeftRoom (local) init");
+		UnityEngine.Debug.Log("OnLeftRoom (local) init");
 		NickLabelController.currentCamera = null;
 		if (Defs.typeDisconnectGame == Defs.DisconectGameType.Exit)
 		{
@@ -808,7 +807,7 @@ public sealed class Initializer : MonoBehaviour
 
 	public void OnDisconnectedFromPhoton()
 	{
-		Debug.Log("OnDisconnectedFromPhotoninit");
+		UnityEngine.Debug.Log("OnDisconnectedFromPhotoninit");
 		OnConnectionFail((DisconnectCause)0);
 	}
 
@@ -840,7 +839,7 @@ public sealed class Initializer : MonoBehaviour
 		isNotConnectRoom = false;
 		countConnectToRoom = 0;
 		PlayerPrefs.SetString("TypeGame", "client");
-		Debug.Log("OnConnectionFail " + cause);
+		UnityEngine.Debug.Log("OnConnectionFail " + cause);
 		tc.SetActive(true);
 		BonusController.sharedController.ClearBonuses();
 		for (int i = 0; i < enemiesObj.Count; i++)
@@ -886,7 +885,7 @@ public sealed class Initializer : MonoBehaviour
 			Invoke("ConnectToPhoton", 3f);
 			return;
 		}
-		Debug.Log("ConnectToPhoton ");
+		UnityEngine.Debug.Log("ConnectToPhoton ");
 		ActivityIndicator.IsActiveIndicator = true;
 		ExperienceController.sharedController.isShowRanks = false;
 		if (NetworkStartTableNGUIController.sharedController != null)
@@ -953,7 +952,7 @@ public sealed class Initializer : MonoBehaviour
 				component.shopAnchor.SetActive(false);
 			}
 		}
-		Debug.Log("OnFailedToConnectToPhoton. StatusCode: " + parameters);
+		UnityEngine.Debug.Log("OnFailedToConnectToPhoton. StatusCode: " + parameters);
 		if (!isCancelReConnect)
 		{
 			Invoke("ConnectToPhoton", 3f);
@@ -967,7 +966,7 @@ public sealed class Initializer : MonoBehaviour
 
 	public void OnJoinedLobby()
 	{
-		Debug.Log("OnJoinedLobby()");
+		UnityEngine.Debug.Log("OnJoinedLobby()");
 		ConnectToRoom();
 	}
 
@@ -978,7 +977,7 @@ public sealed class Initializer : MonoBehaviour
 		SceneInfo infoScene = SceneInfoController.instance.GetInfoScene(goMapName);
 		if (Defs.typeDisconnectGame == Defs.DisconectGameType.RandomGameInHunger)
 		{
-			Debug.Log("JoinRandomRoom");
+			UnityEngine.Debug.Log("JoinRandomRoom");
 			isCancelReConnect = true;
 			int num = UnityEngine.Random.Range(0, SceneInfoController.instance.GetCountScenesForMode(TypeModeGame.DeadlyGames));
 			PlayerPrefs.SetString("TypeGame", "client");
@@ -988,12 +987,12 @@ public sealed class Initializer : MonoBehaviour
 		}
 		else if (Defs.typeDisconnectGame == Defs.DisconectGameType.SelectNewMap)
 		{
-			Debug.Log("ConnectToRoom() " + goMapName);
+			UnityEngine.Debug.Log("ConnectToRoom() " + goMapName);
 			JoinRandomRoom(infoScene);
 		}
 		else
 		{
-			Debug.Log("ConnectToRoom " + PlayerPrefs.GetString("RoomName"));
+			UnityEngine.Debug.Log("ConnectToRoom " + PlayerPrefs.GetString("RoomName"));
 			if (!isCancelReConnect)
 			{
 				PhotonNetwork.JoinRoom(PlayerPrefs.GetString("RoomName"));
@@ -1004,7 +1003,7 @@ public sealed class Initializer : MonoBehaviour
 	private void OnPhotonJoinRoomFailed()
 	{
 		countConnectToRoom++;
-		Debug.Log("OnPhotonJoinRoomFailed - init");
+		UnityEngine.Debug.Log("OnPhotonJoinRoomFailed - init");
 		isNotConnectRoom = true;
 		if (countConnectToRoom < 6)
 		{
@@ -1022,7 +1021,7 @@ public sealed class Initializer : MonoBehaviour
 		{
 			goMapName = _map.NameScene;
 		}
-		Debug.Log("JoinRandomRoom " + goMapName);
+		UnityEngine.Debug.Log("JoinRandomRoom " + goMapName);
 		if (WeaponManager.sharedManager != null)
 		{
 			WeaponManager.sharedManager.Reset(Defs.filterMaps.ContainsKey(goMapName) ? Defs.filterMaps[goMapName] : 0);
@@ -1035,7 +1034,7 @@ public sealed class Initializer : MonoBehaviour
 
 	private void OnPhotonRandomJoinFailed()
 	{
-		Debug.Log("OnPhotonJoinRoomFailed");
+		UnityEngine.Debug.Log("OnPhotonJoinRoomFailed");
 		PlayerPrefs.SetString("TypeGame", "server");
 		SceneInfo infoScene = SceneInfoController.instance.GetInfoScene(goMapName);
 		if (joinNewRoundTries >= 2 && abTestConnect)
@@ -1045,7 +1044,7 @@ public sealed class Initializer : MonoBehaviour
 		}
 		if (joinNewRoundTries < 2)
 		{
-			Debug.Log("No rooms with new round: " + joinNewRoundTries + ((!abTestConnect) ? string.Empty : " AbTestSeparate"));
+			UnityEngine.Debug.Log("No rooms with new round: " + joinNewRoundTries + ((!abTestConnect) ? string.Empty : " AbTestSeparate"));
 			joinNewRoundTries++;
 			ConnectSceneNGUIController.JoinRandomGameRoom(infoScene.indexMap, ConnectSceneNGUIController.regim, joinNewRoundTries, abTestConnect);
 			return;
@@ -1079,7 +1078,7 @@ public sealed class Initializer : MonoBehaviour
 			AnalyticsStuff.LogMultiplayer();
 		}
 		CheckRoom();
-		Debug.Log("OnJoinedRoom - init");
+		UnityEngine.Debug.Log("OnJoinedRoom - init");
 		PlayerPrefs.SetString("RoomName", PhotonNetwork.room.name);
 		SceneInfo infoScene = SceneInfoController.instance.GetInfoScene(int.Parse(PhotonNetwork.room.customProperties[ConnectSceneNGUIController.mapProperty].ToString()));
 		Instance.goMapName = infoScene.NameScene;
@@ -1110,17 +1109,17 @@ public sealed class Initializer : MonoBehaviour
 		{
 			WeaponManager.sharedManager.Reset(Defs.filterMaps.ContainsKey(goMapName) ? Defs.filterMaps[goMapName] : 0);
 		}
-		Debug.Log("MoveToGameScene");
+		UnityEngine.Debug.Log("MoveToGameScene");
 		while (PhotonNetwork.room == null)
 		{
 			yield return 0;
 		}
 		PhotonNetwork.isMessageQueueRunning = false;
 		SceneInfo scInfo = SceneInfoController.instance.GetInfoScene(int.Parse(PhotonNetwork.room.customProperties[ConnectSceneNGUIController.mapProperty].ToString()));
-		Debug.Log(scInfo.NameScene);
+		UnityEngine.Debug.Log(scInfo.NameScene);
 		LoadConnectScene.textureToShow = Resources.Load("LevelLoadings" + ((!Device.isRetinaAndStrong) ? string.Empty : "/Hi") + "/Loading_" + scInfo.NameScene) as Texture2D;
 		LoadingInAfterGame.loadingTexture = LoadConnectScene.textureToShow;
-		Debug.Log("LoadConnectScene.textureToShow " + LoadConnectScene.textureToShow.name);
+		UnityEngine.Debug.Log("LoadConnectScene.textureToShow " + LoadConnectScene.textureToShow.name);
 		LoadConnectScene.sceneToLoad = scInfo.NameScene;
 		LoadConnectScene.noteToShow = null;
 		AsyncOperation async = Singleton<SceneLoader>.Instance.LoadSceneAsync("PromScene");
@@ -1147,16 +1146,16 @@ public sealed class Initializer : MonoBehaviour
 
 	public void OnConnectedToPhoton()
 	{
-		Debug.Log("OnConnectedToPhotoninit");
+		UnityEngine.Debug.Log("OnConnectedToPhotoninit");
 	}
 
 	public void OnFailedToConnectToPhoton()
 	{
-		Debug.Log("OnFailedToConnectToPhotoninit");
+		UnityEngine.Debug.Log("OnFailedToConnectToPhotoninit");
 	}
 
 	public void OnPhotonInstantiate(PhotonMessageInfo info)
 	{
-		Debug.Log("OnPhotonInstantiate init" + info.sender);
+		UnityEngine.Debug.Log("OnPhotonInstantiate init" + info.sender);
 	}
 }

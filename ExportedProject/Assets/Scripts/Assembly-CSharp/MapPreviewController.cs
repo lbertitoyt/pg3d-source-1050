@@ -60,7 +60,7 @@ public sealed class MapPreviewController : MonoBehaviour
 
 	private IEnumerator SetPopularity()
 	{
-		Lazy<HashSet<ConnectSceneNGUIController.RegimGame>> loggedFailedModes = new Lazy<HashSet<ConnectSceneNGUIController.RegimGame>>(() => new HashSet<ConnectSceneNGUIController.RegimGame>());
+		System.Lazy<HashSet<ConnectSceneNGUIController.RegimGame>> loggedFailedModes = new System.Lazy<HashSet<ConnectSceneNGUIController.RegimGame>>(() => new HashSet<ConnectSceneNGUIController.RegimGame>());
 		Dictionary<string, string> _mapsPoplarityInCurrentRegim;
 		while (true)
 		{

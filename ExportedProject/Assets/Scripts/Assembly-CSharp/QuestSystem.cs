@@ -123,7 +123,7 @@ internal sealed class QuestSystem : MonoBehaviour
 	{
 		TaskCompletionSource<string> val = new TaskCompletionSource<string>();
 		StartCoroutine(GetQuestConfigCoroutine(val));
-		return val.get_Task();
+		return val.Task;
 	}
 
 	private IEnumerator GetQuestConfigCoroutine(TaskCompletionSource<string> tcs)
@@ -150,7 +150,7 @@ internal sealed class QuestSystem : MonoBehaviour
 	{
 		TaskCompletionSource<string> val = new TaskCompletionSource<string>();
 		StartCoroutine(GetConfigUpdateCoroutine(val));
-		return val.get_Task();
+		return val.Task;
 	}
 
 	private IEnumerator GetConfigUpdateCoroutine(TaskCompletionSource<string> tcs)
@@ -222,20 +222,20 @@ internal sealed class QuestSystem : MonoBehaviour
 	private IEnumerator GetConfigOnceCoroutine(bool resumed)
 	{
 		System.Threading.Tasks.Task<string> configUpdateRequest = GetConfigUpdate();
-		while (!((System.Threading.Tasks.Task)configUpdateRequest).get_IsCompleted())
+		while (!((System.Threading.Tasks.Task)configUpdateRequest).IsCompleted)
 		{
 			yield return null;
 		}
 		float responceReceivedTime = Time.realtimeSinceStartup;
-		if (((System.Threading.Tasks.Task)configUpdateRequest).get_IsFaulted())
+		if (((System.Threading.Tasks.Task)configUpdateRequest).IsFaulted)
 		{
-			Debug.LogWarning(((System.Threading.Tasks.Task)configUpdateRequest).get_Exception());
+			Debug.LogWarning(((System.Threading.Tasks.Task)configUpdateRequest).Exception);
 			yield break;
 		}
-		Dictionary<string, object> response = Json.Deserialize(configUpdateRequest.get_Result()) as Dictionary<string, object>;
+		Dictionary<string, object> response = Json.Deserialize(configUpdateRequest.Result) as Dictionary<string, object>;
 		if (response == null)
 		{
-			Debug.LogWarning("GetConfigOnceCoroutine(): Bad update response: " + configUpdateRequest.get_Result());
+			Debug.LogWarning("GetConfigOnceCoroutine(): Bad update response: " + configUpdateRequest.Result);
 			yield break;
 		}
 		string version2 = string.Empty;
@@ -263,19 +263,19 @@ internal sealed class QuestSystem : MonoBehaviour
 			yield break;
 		}
 		System.Threading.Tasks.Task<string> questConfigRequest = GetQuestConfig();
-		while (!((System.Threading.Tasks.Task)questConfigRequest).get_IsCompleted())
+		while (!((System.Threading.Tasks.Task)questConfigRequest).IsCompleted)
 		{
 			yield return null;
 		}
-		if (((System.Threading.Tasks.Task)questConfigRequest).get_IsFaulted())
+		if (((System.Threading.Tasks.Task)questConfigRequest).IsFaulted)
 		{
-			Debug.LogWarning(((System.Threading.Tasks.Task)questConfigRequest).get_Exception());
+			Debug.LogWarning(((System.Threading.Tasks.Task)questConfigRequest).Exception);
 			yield break;
 		}
-		Dictionary<string, object> rawQuests = Json.Deserialize(questConfigRequest.get_Result()) as Dictionary<string, object>;
+		Dictionary<string, object> rawQuests = Json.Deserialize(questConfigRequest.Result) as Dictionary<string, object>;
 		if (rawQuests == null)
 		{
-			Debug.LogWarning("GetConfigOnceCoroutine(): Bad config response: " + questConfigRequest.get_Result());
+			Debug.LogWarning("GetConfigOnceCoroutine(): Bad config response: " + questConfigRequest.Result);
 			yield break;
 		}
 		List<Difficulty> allowedDifficulties = new List<Difficulty>

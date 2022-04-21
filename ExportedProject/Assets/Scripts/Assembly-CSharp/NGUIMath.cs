@@ -963,7 +963,7 @@ public static class NGUIMath
 		Camera camera = NGUITools.FindCameraForLayer(layer);
 		if (camera == null)
 		{
-			Debug.LogWarning("No camera found for layer " + layer);
+			UnityEngine.Debug.LogWarning("No camera found for layer " + layer);
 			return pos;
 		}
 		Vector3 position = camera.ScreenToWorldPoint(pos);
@@ -980,7 +980,7 @@ public static class NGUIMath
 		Camera camera = NGUITools.FindCameraForLayer(layer);
 		if (camera == null)
 		{
-			Debug.LogWarning("No camera found for layer " + layer);
+			UnityEngine.Debug.LogWarning("No camera found for layer " + layer);
 			return pos;
 		}
 		Vector3 vector = camera.ScreenToWorldPoint(pos);

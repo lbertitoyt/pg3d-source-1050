@@ -112,12 +112,10 @@ internal sealed class VideoRecordingController : MonoBehaviour, IDisposable
 			PlayerPrefs.SetInt("PostVideo", PlayerPrefs.GetInt("PostVideo", 0) + 1);
 			if (PlayerPrefs.GetInt("Active_loyal_users_send", 0) == 0 && PlayerPrefs.GetInt("PostFacebookCount", 0) > 2)
 			{
-				FacebookController.LogEvent("Active_loyal_users");
 				PlayerPrefs.SetInt("Active_loyal_users_send", 1);
 			}
 			if (PlayerPrefs.GetInt("Active_loyal_users_payed_send", 0) == 0 && PlayerPrefs.GetInt("PostFacebookCount", 0) > 2 && StoreKitEventListener.GetDollarsSpent() > 0)
 			{
-				FacebookController.LogEvent("Active_loyal_users_payed");
 				PlayerPrefs.SetInt("Active_loyal_users_payed_send", 1);
 			}
 		};

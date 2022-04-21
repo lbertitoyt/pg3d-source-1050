@@ -57,7 +57,7 @@ internal sealed class AppsMenu : MonoBehaviour
 	{
 		get
 		{
-			return _storagePermissionGrantedPromise.get_Task();
+			return _storagePermissionGrantedPromise.Task;
 		}
 	}
 
@@ -69,7 +69,7 @@ internal sealed class AppsMenu : MonoBehaviour
 			{
 				return null;
 			}
-			return _fetchObbPromise.get_Task();
+			return _fetchObbPromise.Task;
 		}
 	}
 
@@ -300,11 +300,11 @@ internal sealed class AppsMenu : MonoBehaviour
 					NoodlePermissionGranter.PermissionRequestCallback = HandleStoragePermissionDialog;
 					NoodlePermissionGranter.GrantPermission(NoodlePermissionGranter.NoodleAndroidPermission.WRITE_EXTERNAL_STORAGE);
 				}
-				while (!((System.Threading.Tasks.Task)StoragePermissionFuture).get_IsCompleted())
+				while (!((System.Threading.Tasks.Task)StoragePermissionFuture).IsCompleted)
 				{
 					yield return null;
 				}
-				if (!StoragePermissionFuture.get_Result())
+				if (!StoragePermissionFuture.Result)
 				{
 					Application.Quit();
 					yield break;
@@ -342,9 +342,9 @@ internal sealed class AppsMenu : MonoBehaviour
 
 	private IEnumerator OnApplicationPause(bool pause)
 	{
-		bool fetchingObb = FetchObbFuture != null && !((System.Threading.Tasks.Task)FetchObbFuture).get_IsCompleted();
+		bool fetchingObb = FetchObbFuture != null && !((System.Threading.Tasks.Task)FetchObbFuture).IsCompleted;
 		Debug.LogFormat("AppsMenu pause: {0}; fetching OBB: {1}", pause, fetchingObb);
-		if (pause || FetchObbFuture == null || (((System.Threading.Tasks.Task)FetchObbFuture).get_IsCompleted() && !((System.Threading.Tasks.Task)FetchObbFuture).get_IsFaulted() && !((System.Threading.Tasks.Task)FetchObbFuture).get_IsCanceled() && !string.IsNullOrEmpty(FetchObbFuture.get_Result())))
+		if (pause || FetchObbFuture == null || (((System.Threading.Tasks.Task)FetchObbFuture).IsCompleted && !((System.Threading.Tasks.Task)FetchObbFuture).IsFaulted && !((System.Threading.Tasks.Task)FetchObbFuture).IsCanceled && !string.IsNullOrEmpty(FetchObbFuture.Result)))
 		{
 			yield break;
 		}
@@ -353,9 +353,9 @@ internal sealed class AppsMenu : MonoBehaviour
 			_fetchObbPromise.TrySetCanceled();
 		}
 		_fetchObbPromise = new TaskCompletionSource<string>();
-		if (((System.Threading.Tasks.Task)StoragePermissionFuture).get_IsCompleted())
+		if (((System.Threading.Tasks.Task)StoragePermissionFuture).IsCompleted)
 		{
-			if (!StoragePermissionFuture.get_Result())
+			if (!StoragePermissionFuture.Result)
 			{
 				Application.Quit();
 			}
@@ -367,11 +367,11 @@ internal sealed class AppsMenu : MonoBehaviour
 			NoodlePermissionGranter.PermissionRequestCallback = HandleStoragePermissionDialog;
 			NoodlePermissionGranter.GrantPermission(NoodlePermissionGranter.NoodleAndroidPermission.WRITE_EXTERNAL_STORAGE);
 		}
-		while (!((System.Threading.Tasks.Task)StoragePermissionFuture).get_IsCompleted())
+		while (!((System.Threading.Tasks.Task)StoragePermissionFuture).IsCompleted)
 		{
 			yield return null;
 		}
-		if (!StoragePermissionFuture.get_Result())
+		if (!StoragePermissionFuture.Result)
 		{
 			Application.Quit();
 		}

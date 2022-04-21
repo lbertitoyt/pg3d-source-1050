@@ -3217,7 +3217,7 @@ public sealed class WeaponManager : MonoBehaviour
 		}
 		else
 		{
-			Lazy<string> lazy = new Lazy<string>(delegate
+			System.Lazy<string> Lazy = new System.Lazy<string>(delegate
 			{
 				string value;
 				if (!tagToStoreIDMapping.TryGetValue(wtag, out value))
@@ -3233,7 +3233,7 @@ public sealed class WeaponManager : MonoBehaviour
 				}
 				return value2;
 			});
-			flag = (TrainingController.TrainingCompleted || (!(wtag == WeaponTags.BASIC_FLAMETHROWER_Tag) && !(wtag == WeaponTags.SignalPistol_Tag))) && ((ExpController.Instance != null && ExpController.Instance.OurTier >= component.tier) || Storager.getInt(lazy.Value, true) == 1) && (!Removed150615_Guns.Contains(WeaponUpgrades.TagOfFirstUpgrade(wtag)) || LastBoughtTag(wtag) != null);
+			flag = (TrainingController.TrainingCompleted || (!(wtag == WeaponTags.BASIC_FLAMETHROWER_Tag) && !(wtag == WeaponTags.SignalPistol_Tag))) && ((ExpController.Instance != null && ExpController.Instance.OurTier >= component.tier) || (!Removed150615_Guns.Contains(WeaponUpgrades.TagOfFirstUpgrade(wtag)) || LastBoughtTag(wtag) != null));
 		}
 		if (!flag)
 		{

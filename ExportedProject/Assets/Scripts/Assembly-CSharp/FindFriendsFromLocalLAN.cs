@@ -40,7 +40,7 @@ public class FindFriendsFromLocalLAN : MonoBehaviour
 		//IL_0006: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0010: Expected O, but got Unknown
 		objUDPClient = new UdpClient(22044);
-		objUDPClient.set_EnableBroadcast(true);
+		objUDPClient.EnableBroadcast = true;
 		BeginAsyncReceive();
 	}
 
@@ -85,7 +85,7 @@ public class FindFriendsFromLocalLAN : MonoBehaviour
 		}
 		IPEndPoint val = new IPEndPoint(IPAddress.Any, 0);
 		byte[] array = objUDPClient.EndReceive(objResult, ref val);
-		if (array.Length > 0 && !val.get_Address().ToString().Equals(ipaddress))
+		if (array.Length > 0 && !val.Address.ToString().Equals(ipaddress))
 		{
 			string @string = Encoding.Unicode.GetString(array);
 			List<object> list = Json.Deserialize(@string) as List<object>;

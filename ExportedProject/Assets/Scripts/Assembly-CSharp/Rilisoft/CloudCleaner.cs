@@ -1,7 +1,4 @@
-using System;
-using GooglePlayGames;
-using GooglePlayGames.BasicApi;
-using GooglePlayGames.BasicApi.SavedGame;
+/*using System;
 using UnityEngine;
 
 namespace Rilisoft
@@ -61,4 +58,4 @@ namespace Rilisoft
 			PlayGamesPlatform.Instance.SavedGame.OpenWithManualConflictResolution(filename, DataSource.ReadNetworkOnly, true, conflictCallback, completedCallback);
 		}
 	}
-}
+} */

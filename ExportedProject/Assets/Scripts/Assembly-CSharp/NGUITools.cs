@@ -193,7 +193,7 @@ public static class NGUITools
 	{
 		get
 		{
-			return Application.platform != RuntimePlatform.WindowsWebPlayer && Application.platform != RuntimePlatform.OSXWebPlayer;
+			return true;
 		}
 	}
 
@@ -1258,7 +1258,7 @@ public static class NGUITools
 		}
 		catch (Exception ex)
 		{
-			Debug.LogError(ex.Message);
+			UnityEngine.Debug.LogError(ex.Message);
 			return false;
 		}
 		fileStream.Write(bytes, 0, bytes.Length);

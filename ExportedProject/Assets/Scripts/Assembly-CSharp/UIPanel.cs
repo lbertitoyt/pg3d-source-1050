@@ -759,7 +759,7 @@ public class UIPanel : UIRect
 	protected override void Awake()
 	{
 		base.Awake();
-		mHalfPixelOffset = Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.XBOX360 || Application.platform == RuntimePlatform.WindowsWebPlayer || Application.platform == RuntimePlatform.WindowsEditor;
+		mHalfPixelOffset = Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.XBOX360 || Application.platform == RuntimePlatform.WindowsEditor;
 		if (mHalfPixelOffset && SystemInfo.graphicsDeviceVersion.Contains("Direct3D"))
 		{
 			mHalfPixelOffset = SystemInfo.graphicsShaderLevel < 40;

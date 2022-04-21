@@ -7,7 +7,7 @@ internal sealed class FrameStopwatchScript : MonoBehaviour
 
 	public float GetSecondsSinceFrameStarted()
 	{
-		return (float)_stopwatch.get_ElapsedMilliseconds() / 1000f;
+		return (float)_stopwatch.ElapsedMilliseconds / 1000f;
 	}
 
 	internal void Start()

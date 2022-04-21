@@ -52,10 +52,6 @@ public sealed class SocialGunBannerView : BannerWindow
 	public override void Show()
 	{
 		base.Show();
-		if (FacebookController.sharedController != null)
-		{
-			FacebookController.sharedController.UpdateCountShownWindowByShowCondition();
-		}
 	}
 
 	public void HideWindow()
@@ -75,19 +71,6 @@ public sealed class SocialGunBannerView : BannerWindow
 
 	public void Continue()
 	{
-		MainMenuController.DoMemoryConsumingTaskInEmptyScene(delegate
-		{
-			FacebookController.Login(delegate
-			{
-				FireSocialGunBannerViewLoginCompletedEvent(true);
-			}, delegate
-			{
-				FireSocialGunBannerViewLoginCompletedEvent(false);
-			}, "Social Gun Banner");
-		}, delegate
-		{
-			FacebookController.Login(null, null, "Social Gun Banner");
-		});
 	}
 
 	private void FireSocialGunBannerViewLoginCompletedEvent(bool val)

@@ -1,5 +1,4 @@
 using System;
-using GooglePlayGames;
 
 namespace Rilisoft
 {
@@ -21,7 +20,6 @@ namespace Rilisoft
 			{
 				throw new ArgumentNullException("callback");
 			}
-			PlayGamesPlatform.Instance.Authenticate(callback, silent);
 		}
 
 		public void IncrementAchievement(string achievementId, int steps, Action<bool> callback)
@@ -34,17 +32,15 @@ namespace Rilisoft
 			{
 				throw new ArgumentNullException("callback");
 			}
-			PlayGamesPlatform.Instance.IncrementAchievement(achievementId, steps, callback);
 		}
 
 		public bool IsAuthenticated()
 		{
-			return PlayGamesPlatform.Instance.IsAuthenticated();
+			return true;
 		}
 
 		public void SignOut()
 		{
-			PlayGamesPlatform.Instance.SignOut();
 		}
 	}
 }

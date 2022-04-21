@@ -46,7 +46,7 @@ namespace Rilisoft
 		{
 			get
 			{
-				return _timeNetto.get_Elapsed();
+				return _timeNetto.Elapsed;
 			}
 		}
 

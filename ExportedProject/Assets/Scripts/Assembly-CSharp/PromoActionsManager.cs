@@ -619,7 +619,7 @@ public sealed class PromoActionsManager : MonoBehaviour
 	private IEnumerator GetActionsLoop(System.Threading.Tasks.Task futureToWait)
 	{
 		System.Threading.Tasks.Task futureToWait2 = default(System.Threading.Tasks.Task);
-		yield return new WaitUntil(() => futureToWait2.get_IsCompleted());
+		yield return new WaitUntil(() => futureToWait2.IsCompleted);
 		while (!TrainingController.TrainingCompleted && TrainingController.CompletedTrainingStage < TrainingController.NewTrainingCompletedStage.ShootingRangeCompleted)
 		{
 			yield return null;
@@ -651,7 +651,7 @@ public sealed class PromoActionsManager : MonoBehaviour
 	private IEnumerator GetAdvertInfoLoop(System.Threading.Tasks.Task futureToWait)
 	{
 		System.Threading.Tasks.Task futureToWait2 = default(System.Threading.Tasks.Task);
-		yield return new WaitUntil(() => futureToWait2.get_IsCompleted());
+		yield return new WaitUntil(() => futureToWait2.IsCompleted);
 		while (!TrainingController.TrainingCompleted && TrainingController.CompletedTrainingStage <= TrainingController.NewTrainingCompletedStage.None)
 		{
 			yield return null;
@@ -1705,7 +1705,7 @@ public sealed class PromoActionsManager : MonoBehaviour
 	private IEnumerator GetBestBuyInfoLoop(System.Threading.Tasks.Task futureToWait)
 	{
 		System.Threading.Tasks.Task futureToWait2 = default(System.Threading.Tasks.Task);
-		yield return new WaitUntil(() => futureToWait2.get_IsCompleted());
+		yield return new WaitUntil(() => futureToWait2.IsCompleted);
 		while (true)
 		{
 			yield return StartCoroutine(DownloadBestBuyInfo());

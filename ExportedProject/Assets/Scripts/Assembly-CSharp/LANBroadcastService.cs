@@ -162,7 +162,7 @@ public class LANBroadcastService : MonoBehaviour
 		}
 		IPEndPoint val = new IPEndPoint(IPAddress.Any, 0);
 		byte[] array = objUDPClient.EndReceive(objResult, ref val);
-		if (array.Length > 0 && !val.get_Address().ToString().Equals(ipaddress))
+		if (array.Length > 0 && !val.Address.ToString().Equals(ipaddress))
 		{
 			string @string = Encoding.Unicode.GetString(array);
 			string[] array2 = @string.Split(new char[1] { 'ý' }, @string.Length);
@@ -171,13 +171,13 @@ public class LANBroadcastService : MonoBehaviour
 				for (int i = 0; i < lstReceivedMessages.Count; i++)
 				{
 					ReceivedMessage receivedMessage = lstReceivedMessages[i];
-					if (val.get_Address().ToString().Equals(receivedMessage.ipAddress))
+					if (val.Address.ToString().Equals(receivedMessage.ipAddress))
 					{
 						lstReceivedMessages.RemoveAt(i);
 					}
 				}
 				ReceivedMessage item = default(ReceivedMessage);
-				item.ipAddress = val.get_Address().ToString();
+				item.ipAddress = val.Address.ToString();
 				item.name = array2[1];
 				item.map = array2[2];
 				item.connectedPlayers = int.Parse(array2[3]);
@@ -248,7 +248,7 @@ public class LANBroadcastService : MonoBehaviour
 			StopBroadCasting();
 		}
 		objUDPClient = new UdpClient(22043);
-		objUDPClient.set_EnableBroadcast(true);
+		objUDPClient.EnableBroadcast = true;
 		fTimeLastMessageSent = Time.time;
 	}
 

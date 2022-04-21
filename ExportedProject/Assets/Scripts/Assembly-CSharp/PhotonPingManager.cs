@@ -25,7 +25,7 @@ public class PhotonPingManager
 			int num = int.MaxValue;
 			foreach (Region availableRegion in PhotonNetwork.networkingPeer.AvailableRegions)
 			{
-				Debug.Log("BestRegion checks region: " + availableRegion);
+				UnityEngine.Debug.Log("BestRegion checks region: " + availableRegion);
 				if (availableRegion.Ping != 0 && availableRegion.Ping < num)
 				{
 					num = availableRegion.Ping;
@@ -55,7 +55,7 @@ public class PhotonPingManager
 		}
 		else
 		{
-			Debug.Log("Using constructor for new PingNativeDynamic()");
+			UnityEngine.Debug.Log("Using constructor for new PingNativeDynamic()");
 			ping = new PingNativeDynamic();
 		}
 		float rttSum = 0f;
@@ -78,20 +78,20 @@ public class PhotonPingManager
 			}
 			catch (Exception e)
 			{
-				Debug.Log("catched: " + e);
+				UnityEngine.Debug.Log("catched: " + e);
 				PingsRunning--;
 				break;
 			}
 			while (!ping.Done())
 			{
-				if (sw.get_ElapsedMilliseconds() >= MaxMilliseconsPerPing)
+				if (sw.ElapsedMilliseconds >= MaxMilliseconsPerPing)
 				{
 					overtime = true;
 					break;
 				}
 				yield return 0;
 			}
-			int rtt = (int)sw.get_ElapsedMilliseconds();
+			int rtt = (int)sw.ElapsedMilliseconds;
 			if ((!IgnoreInitialAttempt || i != 0) && ping.Successful && !overtime)
 			{
 				rttSum += (float)rtt;
@@ -127,7 +127,7 @@ public class PhotonPingManager
 		}
 		catch (Exception ex)
 		{
-			Debug.Log("Exception caught! " + ex.Source + " Message: " + ex.Message);
+			UnityEngine.Debug.Log("Exception caught! " + ex.Source + " Message: " + ex.Message);
 		}
 		return string.Empty;
 	}

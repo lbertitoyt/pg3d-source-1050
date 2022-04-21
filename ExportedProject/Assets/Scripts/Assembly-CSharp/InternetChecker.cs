@@ -47,7 +47,7 @@ internal sealed class InternetChecker : MonoBehaviour
 			HttpWebResponse val2 = (HttpWebResponse)val.GetResponse();
 			try
 			{
-				if ((int)val2.get_StatusCode() < 299 && (int)val2.get_StatusCode() >= 200)
+				if ((int)val2.StatusCode < 299 && (int)val2.StatusCode >= 200)
 				{
 					Debug.Log("Trying to check internet");
 					using (StreamReader streamReader = new StreamReader(val2.GetResponseStream()))

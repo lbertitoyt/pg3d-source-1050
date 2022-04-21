@@ -18,7 +18,7 @@ namespace Rilisoft
 			_text = text ?? string.Empty;
 			if (_verbose)
 			{
-				Debug.Log(string.Format("{0}: started.", _text));
+				UnityEngine.Debug.Log(string.Format("{0}: started.", _text));
 			}
 			_stopwatch = Stopwatch.StartNew();
 		}
@@ -33,7 +33,7 @@ namespace Rilisoft
 			_stopwatch.Stop();
 			if (_verbose)
 			{
-				Debug.Log(string.Format("{0}: finished at {1:0.00}", _text, _stopwatch.get_ElapsedMilliseconds()));
+				UnityEngine.Debug.Log(string.Format("{0}: finished at {1:0.00}", _text, _stopwatch.ElapsedMilliseconds));
 			}
 		}
 	}

@@ -389,7 +389,7 @@ public sealed class NetworkStartTable : MonoBehaviour
 	{
 		if (error != null)
 		{
-			Debug.LogError(error);
+			UnityEngine.Debug.LogError(error);
 			return;
 		}
 		Prime31.Utils.logObject(result);
@@ -453,7 +453,7 @@ public sealed class NetworkStartTable : MonoBehaviour
 			PlayerPrefs.SetInt(key, int2 + 1);
 			FlurryPluginWrapper.LogMatchCompleted(ConnectSceneNGUIController.regim.ToString());
 		}
-		IncreaseTimeInMode(3, _matchStopwatch.get_Elapsed().TotalMinutes);
+		IncreaseTimeInMode(3, _matchStopwatch.Elapsed.TotalMinutes);
 		StoreKitEventListener.State.PurchaseKey = "End match";
 		if (_cam != null)
 		{
@@ -526,7 +526,7 @@ public sealed class NetworkStartTable : MonoBehaviour
 			}
 			else
 			{
-				Debug.LogWarning("sharedShop == null");
+				UnityEngine.Debug.LogWarning("sharedShop == null");
 			}
 		}
 	}
@@ -566,7 +566,7 @@ public sealed class NetworkStartTable : MonoBehaviour
 			}
 			else if (Network.connections.Length == 1)
 			{
-				Debug.Log("Disconnecting: " + Network.connections[0].ipAddress + ":" + Network.connections[0].port);
+				UnityEngine.Debug.Log("Disconnecting: " + Network.connections[0].ipAddress + ":" + Network.connections[0].port);
 				Network.CloseConnection(Network.connections[0], true);
 			}
 			ActivityIndicator.IsActiveIndicator = false;
@@ -645,9 +645,8 @@ public sealed class NetworkStartTable : MonoBehaviour
 
 	public void PostFacebookBtnClick()
 	{
-		Debug.Log("show facebook dialog");
+		UnityEngine.Debug.Log("show facebook dialog");
 		FlurryPluginWrapper.LogFacebook();
-		FacebookController.ShowPostDialog();
 	}
 
 	public void PostTwitterBtnClick()
@@ -773,7 +772,7 @@ public sealed class NetworkStartTable : MonoBehaviour
 		_weaponManager.myPlayerMoveC = pl.GetComponent<SkinName>().playerMoveC;
 		if (!isInet && isServer)
 		{
-			Debug.Log("networkView.RPC(RunGame, RPCMode.OthersBuffered);");
+			UnityEngine.Debug.Log("networkView.RPC(RunGame, RPCMode.OthersBuffered);");
 			GetComponent<NetworkView>().RPC("RunGame", RPCMode.OthersBuffered);
 		}
 		Initializer.Instance.SetupObjectThatNeedsPlayer();
@@ -1012,7 +1011,7 @@ public sealed class NetworkStartTable : MonoBehaviour
 		}
 		catch (Exception message)
 		{
-			Debug.LogError(message);
+			UnityEngine.Debug.LogError(message);
 		}
 		if (isMine && !TrainingController.TrainingCompleted)
 		{
@@ -1124,7 +1123,7 @@ public sealed class NetworkStartTable : MonoBehaviour
 				lanScan.serverMessage.comment = PlayerPrefs.GetString("MaxKill");
 				lanScan.serverMessage.regim = (int)ConnectSceneNGUIController.regim;
 				lanScan.StartAnnounceBroadCasting();
-				Debug.Log("lanScan.serverMessage.regim=" + lanScan.serverMessage.regim);
+				UnityEngine.Debug.Log("lanScan.serverMessage.regim=" + lanScan.serverMessage.regim);
 			}
 			else
 			{
@@ -1184,7 +1183,7 @@ public sealed class NetworkStartTable : MonoBehaviour
 		}
 		catch (Exception message)
 		{
-			Debug.Log(message);
+			UnityEngine.Debug.Log(message);
 		}
 		myClanID = _clanID;
 		myClanName = _clanName;
@@ -1544,7 +1543,7 @@ public sealed class NetworkStartTable : MonoBehaviour
 						{
 							if (Application.isEditor)
 							{
-								Debug.LogWarning("Exception  tagWeapon = ItemDb.GetByPrefabName(currentGameObjectPlayer.transform.GetChild(0).name.Replace(\"(Clone)\",\"\")).Tag:  " + ex);
+								UnityEngine.Debug.LogWarning("Exception  tagWeapon = ItemDb.GetByPrefabName(currentGameObjectPlayer.transform.GetChild(0).name.Replace(\"(Clone)\",\"\")).Tag:  " + ex);
 							}
 						}
 						fieldOfView = currentGameObjectPlayer.transform.GetChild(0).GetComponent<WeaponSounds>().fieldOfViewZomm;
@@ -1630,7 +1629,7 @@ public sealed class NetworkStartTable : MonoBehaviour
 			}
 			if (isHunger && hungerGameController != null && hungerGameController.isStartGame && !hungerGameController.isRunPlayer && !isEndInHunger)
 			{
-				Debug.Log("Start hunger player");
+				UnityEngine.Debug.Log("Start hunger player");
 				hungerGameController.isRunPlayer = true;
 				isShowNickTable = false;
 				CountKills = 0;
@@ -1706,7 +1705,7 @@ public sealed class NetworkStartTable : MonoBehaviour
 
 	private void OnDisconnectedFromServer(NetworkDisconnection info)
 	{
-		Debug.Log("OnDisconnectedFromServer");
+		UnityEngine.Debug.Log("OnDisconnectedFromServer");
 		showDisconnectFromServer = true;
 		timerShow = 3f;
 	}
@@ -1737,7 +1736,7 @@ public sealed class NetworkStartTable : MonoBehaviour
 
 	private void OnFailedToConnectToMasterServer(NetworkConnectionError info)
 	{
-		Debug.Log("Could not connect to master server: " + info);
+		UnityEngine.Debug.Log("Could not connect to master server: " + info);
 		showDisconnectFromMasterServer = true;
 		timerShow = 3f;
 	}
@@ -1805,7 +1804,7 @@ public sealed class NetworkStartTable : MonoBehaviour
 		if (PlayerPrefs.HasKey(key2))
 		{
 			string @string = PlayerPrefs.GetString(key2, "{}");
-			Debug.Log("Time in mode string:    " + @string);
+			UnityEngine.Debug.Log("Time in mode string:    " + @string);
 			try
 			{
 				Dictionary<string, object> dictionary = (Rilisoft.MiniJson.Json.Deserialize(@string) as Dictionary<string, object>) ?? new Dictionary<string, object>();
@@ -1824,13 +1823,13 @@ public sealed class NetworkStartTable : MonoBehaviour
 			}
 			catch (OverflowException exception)
 			{
-				Debug.LogError("Cannot deserialize time-in-mode:    " + @string);
-				Debug.LogException(exception);
+				UnityEngine.Debug.LogError("Cannot deserialize time-in-mode:    " + @string);
+				UnityEngine.Debug.LogException(exception);
 			}
 			catch (Exception exception2)
 			{
-				Debug.LogError("Unknown exception:    " + @string);
-				Debug.LogException(exception2);
+				UnityEngine.Debug.LogError("Unknown exception:    " + @string);
+				UnityEngine.Debug.LogException(exception2);
 			}
 		}
 		string key3 = "Statistics.RoundsInMode.Level" + ExperienceController.sharedController.currentLevel;
@@ -1858,25 +1857,25 @@ public sealed class NetworkStartTable : MonoBehaviour
 	{
 		if (Defs.IsDeveloperBuild)
 		{
-			Debug.Log("Waiting until interstitial request is completed...");
+			UnityEngine.Debug.Log("Waiting until interstitial request is completed...");
 		}
-		while (!((System.Threading.Tasks.Task)request).get_IsCompleted())
+		while (!((System.Threading.Tasks.Task)request).IsCompleted)
 		{
 			yield return null;
 		}
-		if (((System.Threading.Tasks.Task)request).get_IsFaulted())
+		if (((System.Threading.Tasks.Task)request).IsFaulted)
 		{
-			Debug.LogWarning("Interstitial request after match failed: " + ((Exception)(object)((System.Threading.Tasks.Task)request).get_Exception()).InnerException.Message);
+			UnityEngine.Debug.LogWarning("Interstitial request after match failed: " + ((Exception)(object)((System.Threading.Tasks.Task)request).Exception).InnerException.Message);
 			yield break;
 		}
 		if (Defs.IsDeveloperBuild)
 		{
-			Debug.Log("Interstitial request after match succeeded. Trying to show interstitial...");
+			UnityEngine.Debug.Log("Interstitial request after match succeeded. Trying to show interstitial...");
 		}
 		yield return null;
 		if (WeaponManager.sharedManager.myPlayer != null)
 		{
-			Debug.LogWarning("Stop waiting: WeaponManager.sharedManager.myPlayer != null");
+			UnityEngine.Debug.LogWarning("Stop waiting: WeaponManager.sharedManager.myPlayer != null");
 			yield break;
 		}
 		yield return null;
@@ -1884,7 +1883,7 @@ public sealed class NetworkStartTable : MonoBehaviour
 		{
 			if (Defs.IsDeveloperBuild)
 			{
-				Debug.Log("Waiting until Reward panel is closed...");
+				UnityEngine.Debug.Log("Waiting until Reward panel is closed...");
 			}
 			while (NetworkStartTableNGUIController.sharedController.isRewardShow)
 			{
@@ -1898,7 +1897,7 @@ public sealed class NetworkStartTable : MonoBehaviour
 			yield return null;
 			if (Defs.IsDeveloperBuild)
 			{
-				Debug.Log(string.Format("Waiting until Level up panel is closed if displayed ({0})...", ExpController.Instance.IsLevelUpShown));
+				UnityEngine.Debug.Log(string.Format("Waiting until Level up panel is closed if displayed ({0})...", ExpController.Instance.IsLevelUpShown));
 			}
 			while (ExpController.Instance.IsLevelUpShown)
 			{
@@ -1916,17 +1915,17 @@ public sealed class NetworkStartTable : MonoBehaviour
 		};
 		FlurryPluginWrapper.LogEventToAppsFlyer("af_content_view", attributes);
 		System.Threading.Tasks.Task<AdResult> future = FyberFacade.Instance.ShowInterstitial(new Dictionary<string, string> { { "Context", "Multiplayer Table" } }, "NetworkStartTable.WaitInterstitialRequestAndShow()");
-		while (!((System.Threading.Tasks.Task)future).get_IsCompleted())
+		while (!((System.Threading.Tasks.Task)future).IsCompleted)
 		{
 			yield return null;
 		}
-		if (((System.Threading.Tasks.Task)future).get_IsFaulted())
+		if (((System.Threading.Tasks.Task)future).IsFaulted)
 		{
-			Debug.LogWarningFormat("Interstitial show after match failed: {0}", ((Exception)(object)((System.Threading.Tasks.Task)future).get_Exception()).InnerException.Message);
+			UnityEngine.Debug.LogWarningFormat("Interstitial show after match failed: {0}", ((Exception)(object)((System.Threading.Tasks.Task)future).Exception).InnerException.Message);
 		}
 		else
 		{
-			Debug.LogFormat("Interstitial show finished with status {0}: {1}", future.get_Result().Status, future.get_Result().Message);
+			UnityEngine.Debug.LogFormat("Interstitial show finished with status {0}: {1}", future.Result.Status, future.Result.Message);
 		}
 	}
 
@@ -1980,7 +1979,7 @@ public sealed class NetworkStartTable : MonoBehaviour
 			PhotonNetwork.FetchServerTimestamp();
 		}
 		_matchStopwatch.Stop();
-		double totalMinutes = _matchStopwatch.get_Elapsed().TotalMinutes;
+		double totalMinutes = _matchStopwatch.Elapsed.TotalMinutes;
 		if (Defs.isHunger)
 		{
 			isEndInHunger = true;
@@ -2007,11 +2006,11 @@ public sealed class NetworkStartTable : MonoBehaviour
 				PlayerPrefs.SetInt(key, int2 + 1);
 				FlurryPluginWrapper.LogMatchCompleted(ConnectSceneNGUIController.regim.ToString());
 			}
-			IncreaseTimeInMode((int)ConnectSceneNGUIController.regim, _matchStopwatch.get_Elapsed().TotalMinutes);
+			IncreaseTimeInMode((int)ConnectSceneNGUIController.regim, _matchStopwatch.Elapsed.TotalMinutes);
 			WWWForm wWWForm = new WWWForm();
 			wWWForm.AddField("action", "time_in_match");
 			wWWForm.AddField("mode", (int)ConnectSceneNGUIController.regim);
-			wWWForm.AddField("time", _matchStopwatch.get_Elapsed().TotalSeconds.ToString());
+			wWWForm.AddField("time", _matchStopwatch.Elapsed.TotalSeconds.ToString());
 			wWWForm.AddField("app_version", ProtocolListGetter.CurrentPlatform + ":" + GlobalGameController.AppVersion);
 			wWWForm.AddField("uniq_id", FriendsController.sharedController.id);
 			wWWForm.AddField("auth", FriendsController.Hash("time_in_match"));
@@ -2021,7 +2020,7 @@ public sealed class NetworkStartTable : MonoBehaviour
 			}
 			wWWForm.AddField("paying", Convert.ToInt32(FlurryPluginWrapper.IsPayingUser()).ToString());
 			wWWForm.AddField("developer", Convert.ToInt32(Defs.IsDeveloperBuild).ToString());
-			Debug.Log("Time in Match Event: " + Encoding.UTF8.GetString(wWWForm.data, 0, wWWForm.data.Length));
+			UnityEngine.Debug.Log("Time in Match Event: " + Encoding.UTF8.GetString(wWWForm.data, 0, wWWForm.data.Length));
 			WWW wWW = Tools.CreateWww(URLs.Friends, wWWForm, string.Empty);
 			_matchStopwatch.Reset();
 		}
@@ -2141,7 +2140,7 @@ public sealed class NetworkStartTable : MonoBehaviour
 			bool flag2 = totalMinutes > PromoActionsManager.MobileAdvert.MinMatchDurationMinutes;
 			if (Defs.IsDeveloperBuild)
 			{
-				Debug.Log(string.Format("[Rilisoft] Match duration: {0:F2}, threshold: {1:F2}", totalMinutes, PromoActionsManager.MobileAdvert.MinMatchDurationMinutes));
+				UnityEngine.Debug.Log(string.Format("[Rilisoft] Match duration: {0:F2}, threshold: {1:F2}", totalMinutes, PromoActionsManager.MobileAdvert.MinMatchDurationMinutes));
 			}
 			if (isMine && !ShopNGUIController.GuiActive && flag2 && MobileAdManager.AdIsApplicable(MobileAdManager.Type.Image, true))
 			{
@@ -2156,7 +2155,7 @@ public sealed class NetworkStartTable : MonoBehaviour
 					}
 					else if (Defs.IsDeveloperBuild)
 					{
-						Debug.Log("showInterstitialAfterMatchWinner: false");
+						UnityEngine.Debug.Log("showInterstitialAfterMatchWinner: false");
 					}
 				}
 				else if (PromoActionsManager.MobileAdvert.ShowInterstitialAfterMatchLoser)
@@ -2168,7 +2167,7 @@ public sealed class NetworkStartTable : MonoBehaviour
 				}
 				else if (Defs.IsDeveloperBuild)
 				{
-					Debug.Log("showInterstitialAfterMatchLoser: false");
+					UnityEngine.Debug.Log("showInterstitialAfterMatchLoser: false");
 				}
 			}
 			if (WeaponManager.sharedManager != null)
@@ -2224,7 +2223,7 @@ public sealed class NetworkStartTable : MonoBehaviour
 							string achievementID = "CgkIr8rGkPIJEAIQAg";
 							Social.ReportProgress(achievementID, 100.0, delegate(bool success)
 							{
-								Debug.Log("Achievement First Win completed: " + success);
+								UnityEngine.Debug.Log("Achievement First Win completed: " + success);
 							});
 						}
 					}
@@ -2548,7 +2547,7 @@ public sealed class NetworkStartTable : MonoBehaviour
 				num = ((!flag) ? (Initializer.players.Count - 1) : 0);
 				flag = num < Mathf.CeilToInt(playerCountInHunger / 2);
 			}
-			Debug.Log(string.Format("<color=orange>My place: {0}, team winner: {1}, rating winner - {2}</color>", num.ToString(), winningTeam.ToString(), flag.ToString()));
+			UnityEngine.Debug.Log(string.Format("<color=orange>My place: {0}, team winner: {1}, rating winner - {2}</color>", num.ToString(), winningTeam.ToString(), flag.ToString()));
 			if (!flag && !Defs.isHunger && myPlayerMoveC.liveTime < 60f)
 			{
 				return result;
@@ -2617,7 +2616,7 @@ public sealed class NetworkStartTable : MonoBehaviour
 					num -= Mathf.FloorToInt(num2);
 				}
 			}
-			Debug.Log(string.Format("<color=orange>My place: {0}, team winner: {1}, rating winner - {2}</color>", num.ToString(), winningTeam.ToString(), flag.ToString()));
+			UnityEngine.Debug.Log(string.Format("<color=orange>My place: {0}, team winner: {1}, rating winner - {2}</color>", num.ToString(), winningTeam.ToString(), flag.ToString()));
 			if (!flag && !Defs.isHunger && myPlayerMoveC.liveTime < 60f)
 			{
 				return currentRatingChange;

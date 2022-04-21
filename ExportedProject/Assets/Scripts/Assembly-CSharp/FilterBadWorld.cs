@@ -9,7 +9,7 @@ public class FilterBadWorld
 
 	private const string PatternTemplate = "\\b({0})(s?)\\b";
 
-	private const RegexOptions Options = 1;
+	private const RegexOptions Options = (RegexOptions)1;
 
 	private static string[] badWordsConst = new string[222]
 	{

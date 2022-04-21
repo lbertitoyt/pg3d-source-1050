@@ -98,7 +98,7 @@ public class GotToNextLevel : MonoBehaviour
 		HashSet<RuntimePlatform> hashSet2 = hashSet;
 		if (hashSet2.Contains(BuildSettings.BuildTargetPlatform) && !Storager.hasKey(Defs.GotCoinsForTraining))
 		{
-			if (!new Lazy<bool>(delegate
+			if (!new System.Lazy<bool>(delegate
 			{
 				if (!Storager.UseSignedPreferences)
 				{
@@ -160,19 +160,13 @@ public class GotToNextLevel : MonoBehaviour
 		}
 		GameObject gameObject = UnityEngine.Object.Instantiate(Resources.Load<GameObject>("NguiWindows/TrainigCompleteNGUI"));
 		RewardWindowBase component = gameObject.GetComponent<RewardWindowBase>();
-		FacebookController.StoryPriority priority = FacebookController.StoryPriority.Green;
 		component.CollectOnlyNoShare = true;
-		component.shareAction = delegate
-		{
-			FacebookController.PostOpenGraphStory("complete", "tutorial", priority);
-		};
 		component.customHide = delegate
 		{
 			GetRewardForTraining();
 			ActivityIndicator.IsActiveIndicator = true;
 			Invoke("LoadPromLevel", 0.4f);
 		};
-		component.priority = priority;
 		component.twitterStatus = () => "Training completed in @PixelGun3D! Come to play with me! \n#pixelgun3d #pixelgun #3d #pg3d #mobile #fps #shooter http://goo.gl/8fzL9u";
 		component.EventTitle = "Training Completed";
 		component.HasReward = true;

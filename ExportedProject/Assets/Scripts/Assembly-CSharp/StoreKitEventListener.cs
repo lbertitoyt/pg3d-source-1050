@@ -285,7 +285,7 @@ public sealed class StoreKitEventListener : MonoBehaviour
 	{
 		get
 		{
-			return _amazonUserPromise.get_Task();
+			return _amazonUserPromise.Task;
 		}
 	}
 
@@ -1732,36 +1732,30 @@ public sealed class StoreKitEventListener : MonoBehaviour
 		if (@int >= 1 && PlayerPrefs.GetInt("Paying_User", 0) == 0)
 		{
 			PlayerPrefs.SetInt("Paying_User", 1);
-			FacebookController.LogEvent("Paying_User");
 			Debug.Log("Paying_User detected.");
 		}
 		if (@int > 1 && PlayerPrefs.GetInt("Paying_User_Dolphin", 0) == 0)
 		{
 			PlayerPrefs.SetInt("Paying_User_Dolphin", 1);
-			FacebookController.LogEvent("Paying_User_Dolphin");
 			Debug.Log("Paying_User_Dolphin detected.");
 		}
 		if (@int > 3 && PlayerPrefs.GetInt("Paying_User_Whale", 0) == 0)
 		{
 			PlayerPrefs.SetInt("Paying_User_Whale", 1);
-			FacebookController.LogEvent("Paying_User_Whale");
 			Debug.Log("Paying_User_Whale detected.");
 		}
 		if (num4 >= 100 && PlayerPrefs.GetInt("SendKit", 0) == 0)
 		{
 			PlayerPrefs.SetInt("SendKit", 1);
-			FacebookController.LogEvent("Whale_detected");
 			Debug.Log("Whale detected.");
 		}
 		if (PlayerPrefs.GetInt("confirmed_1st_time", 0) == 0)
 		{
 			PlayerPrefs.SetInt("confirmed_1st_time", 1);
-			FacebookController.LogEvent("Purchase_confirmed_1st_time");
 			Debug.Log("Purchase confirmed first time.");
 		}
 		if (PlayerPrefs.GetInt("Active_loyal_users_payed_send", 0) == 0 && PlayerPrefs.GetInt("PostFacebookCount", 0) > 2 && PlayerPrefs.GetInt("PostVideo", 0) > 0)
 		{
-			FacebookController.LogEvent("Active_loyal_users_payed");
 			PlayerPrefs.SetInt("Active_loyal_users_payed_send", 1);
 		}
 	}

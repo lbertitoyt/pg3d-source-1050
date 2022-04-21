@@ -52,7 +52,7 @@ namespace Rilisoft
 			ScopeLogger scopeLogger = new ScopeLogger(thisMethod, Defs.IsDeveloperBuild);
 			try
 			{
-				while (!((System.Threading.Tasks.Task)future).get_IsCompleted())
+				while (!((System.Threading.Tasks.Task)future).IsCompleted)
 				{
 					yield return null;
 				}

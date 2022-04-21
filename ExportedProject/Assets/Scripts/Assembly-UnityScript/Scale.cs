@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityScript.Lang;
 
 [Serializable]
 public class Scale : MonoBehaviour

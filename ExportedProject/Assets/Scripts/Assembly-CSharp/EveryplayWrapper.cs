@@ -25,7 +25,7 @@ public sealed class EveryplayWrapper
 	{
 		get
 		{
-			return _stopwatch.get_Elapsed();
+			return _stopwatch.Elapsed;
 		}
 	}
 
@@ -33,7 +33,7 @@ public sealed class EveryplayWrapper
 	{
 		get
 		{
-			return _stopwatch.get_ElapsedMilliseconds();
+			return _stopwatch.ElapsedMilliseconds;
 		}
 	}
 
@@ -142,7 +142,7 @@ public sealed class EveryplayWrapper
 		{
 			CheckCommand("Stop", State.Recording, State.Paused);
 			string text = SceneManager.GetActiveScene().name ?? string.Empty;
-			Debug.LogFormat("Trying to add metadata to shared video.    Map: '{0}'", text);
+			UnityEngine.Debug.LogFormat("Trying to add metadata to shared video.    Map: '{0}'", text);
 			Everyplay.SetMetadata("map", text);
 			Everyplay.StopRecording();
 			_currenState = State.Idle;
@@ -167,13 +167,13 @@ public sealed class EveryplayWrapper
 			if (IsRecording())
 			{
 				string message8 = string.Format("Everyplay.IsRecording() in {0} state.", CurrentState);
-				Debug.LogError(message8);
+				UnityEngine.Debug.LogError(message8);
 				result = false;
 			}
-			if (_stopwatch.get_IsRunning())
+			if (_stopwatch.IsRunning)
 			{
 				string message9 = string.Format("Stopwatch.IsRunning in {0} state.", CurrentState);
-				Debug.LogError(message9);
+				UnityEngine.Debug.LogError(message9);
 				result = false;
 			}
 			break;
@@ -181,19 +181,19 @@ public sealed class EveryplayWrapper
 			if (!IsRecording())
 			{
 				string message3 = string.Format("!Everyplay.IsRecording() in {0} state.", CurrentState);
-				Debug.LogError(message3);
+				UnityEngine.Debug.LogError(message3);
 				result = false;
 			}
 			if (IsPaused())
 			{
 				string message4 = string.Format("Everyplay.IsPaused() in {0} state.", CurrentState);
-				Debug.LogError(message4);
+				UnityEngine.Debug.LogError(message4);
 				result = false;
 			}
-			if (!_stopwatch.get_IsRunning())
+			if (!_stopwatch.IsRunning)
 			{
 				string message5 = string.Format("!Stopwatch.IsRunning in {0} state.", CurrentState);
-				Debug.LogError(message5);
+				UnityEngine.Debug.LogError(message5);
 				result = false;
 			}
 			break;
@@ -201,13 +201,13 @@ public sealed class EveryplayWrapper
 			if (!IsPaused())
 			{
 				string message6 = string.Format("!Everyplay.IsPaused() in {0} state.", CurrentState);
-				Debug.LogError(message6);
+				UnityEngine.Debug.LogError(message6);
 				result = false;
 			}
-			if (_stopwatch.get_IsRunning())
+			if (_stopwatch.IsRunning)
 			{
 				string message7 = string.Format("Stopwatch.IsRunning in {0} state.", CurrentState);
-				Debug.LogError(message7);
+				UnityEngine.Debug.LogError(message7);
 				result = false;
 			}
 			break;
@@ -215,13 +215,13 @@ public sealed class EveryplayWrapper
 			if (IsRecording())
 			{
 				string message = string.Format("Everyplay.IsRecording() in {0} state.", CurrentState);
-				Debug.LogError(message);
+				UnityEngine.Debug.LogError(message);
 				result = false;
 			}
-			if (_stopwatch.get_IsRunning())
+			if (_stopwatch.IsRunning)
 			{
 				string message2 = string.Format("Stopwatch.IsRunning in {0} state.", CurrentState);
-				Debug.LogError(message2);
+				UnityEngine.Debug.LogError(message2);
 				result = false;
 			}
 			break;
@@ -234,12 +234,12 @@ public sealed class EveryplayWrapper
 		if (Array.FindIndex(expectedStates, (State s) => s == CurrentState) == -1)
 		{
 			string message = string.Format("{0} command in invalid state {1}.", command, CurrentState);
-			Debug.LogError(message);
+			UnityEngine.Debug.LogError(message);
 		}
 		else
 		{
 			string message2 = string.Format("{0} command in valid state {1}.", command, CurrentState);
-			Debug.Log(message2);
+			UnityEngine.Debug.Log(message2);
 		}
 	}
 }

@@ -1071,10 +1071,6 @@ public class ShopNGUIController : MonoBehaviour
 
 	public static bool ShowLockedFacebookSkin()
 	{
-		if (!FacebookController.FacebookSupported)
-		{
-			return false;
-		}
 		if (WeaponManager.sharedManager != null && WeaponManager.sharedManager.myPlayerMoveC != null && SkinsController.shopKeyFromNameSkin.ContainsKey("61"))
 		{
 			string value = SkinsController.shopKeyFromNameSkin["61"];
@@ -2411,19 +2407,6 @@ public class ShopNGUIController : MonoBehaviour
 	public void HandleFacebookButton()
 	{
 		_isFromPromoActions = false;
-		MainMenuController.DoMemoryConsumingTaskInEmptyScene(delegate
-		{
-			FacebookController.Login(delegate
-			{
-				if (GuiActive)
-				{
-					sharedShop.UpdateButtons();
-				}
-			}, null, "Shop");
-		}, delegate
-		{
-			FacebookController.Login(null, null, "Shop");
-		});
 	}
 
 	public void HandleProfileButton()
@@ -5826,17 +5809,12 @@ public class ShopNGUIController : MonoBehaviour
 				else if ((_shouldShowRewardWindowSkin || _shouldShowRewardWindowCape) && !Device.isPixelGunLow)
 				{
 					PlayerPrefs.SetInt((!_shouldShowRewardWindowSkin) ? Defs.ShownRewardWindowForCape : Defs.ShownRewardWindowForSkin, 1);
-					if (FacebookController.FacebookSupported || TwitterController.TwitterSupported)
+					if (TwitterController.TwitterSupported)
 					{
 						_isFromPromoActions = false;
 						GameObject window2 = UnityEngine.Object.Instantiate(Resources.Load<GameObject>("NguiWindows/CreateNewItemNGUI"));
 						RewardWindowBase rwb = window2.GetComponent<RewardWindowBase>();
 						bool skin = _shouldShowRewardWindowSkin;
-						FacebookController.StoryPriority priority = (rwb.priority = FacebookController.StoryPriority.Green);
-						rwb.shareAction = delegate
-						{
-							FacebookController.PostOpenGraphStory("paint", (!skin) ? "cape" : "skin", priority, (!skin) ? new Dictionary<string, string> { { "mode", "paint" } } : null);
-						};
 						rwb.HasReward = false;
 						if (skin)
 						{

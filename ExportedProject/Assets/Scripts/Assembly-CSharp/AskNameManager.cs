@@ -51,7 +51,7 @@ public class AskNameManager : MonoBehaviour
 			{
 				return true;
 			}
-			if (MainMenuController.sharedController.SyncFuture.get_IsCompleted())
+			if (MainMenuController.sharedController.SyncFuture.IsCompleted)
 			{
 				return true;
 			}

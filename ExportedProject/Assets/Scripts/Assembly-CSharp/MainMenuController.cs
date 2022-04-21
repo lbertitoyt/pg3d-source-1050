@@ -409,16 +409,9 @@ internal sealed class MainMenuController : ControlsSettingsBase
 			_syncPromise.TrySetResult(false);
 			yield break;
 		}
-		IEnumerator coroutine = PurchasesSynchronizer.Instance.SimulateSynchronization(delegate(bool succeeded)
-		{
-			Debug.LogFormat("[Rilisoft] MainMenuController.PurchasesSynchronizer.Callback({0}) >: {1:F3}", succeeded, Time.realtimeSinceStartup);
+			Debug.LogFormat("[Rilisoft] MainMenuController.PurchasesSynchronizer.Callback({0}) >: {1:F3}", Time.realtimeSinceStartup);
 			try
 			{
-				if (!succeeded)
-				{
-					_syncPromise.TrySetResult(false);
-				}
-				else
 				{
 					Action action = delegate
 					{
@@ -457,11 +450,9 @@ internal sealed class MainMenuController : ControlsSettingsBase
 			}
 			finally
 			{
-				Debug.LogFormat("[Rilisoft] MainMenuController.PurchasesSynchronizer.Callback({0}) <: {1:F3}", succeeded, Time.realtimeSinceStartup);
+				Debug.LogFormat("[Rilisoft] MainMenuController.PurchasesSynchronizer.Callback({0}) <: {1:F3}", Time.realtimeSinceStartup);
 			}
-		});
-		CoroutineRunner.Instance.StartCoroutine(coroutine);
-	}
+		}
 
 	private IEnumerator SynchronizeGoogleCoroutine(Action tryUpdateNickname, GameServicesController gameServicesController)
 	{
@@ -502,17 +493,9 @@ internal sealed class MainMenuController : ControlsSettingsBase
 					else
 					{
 						Debug.Log("Pending synchronization, retrying...");
-						PurchasesSynchronizer.Instance.SynchronizeIfAuthenticated(delegate(bool succeded)
-						{
-							Debug.LogFormat("[Rilisoft] MainMenuController.PurchasesSynchronizer.Callback({0}) >: {1:F3}", succeded, Time.realtimeSinceStartup);
+							Debug.LogFormat("[Rilisoft] MainMenuController.PurchasesSynchronizer.Callback({0}) >: {1:F3}",  Time.realtimeSinceStartup);
 							try
 							{
-								if (!succeded)
-								{
-									_syncPromise.TrySetResult(false);
-								}
-								else
-								{
 									Action action = delegate
 									{
 										Debug.LogFormat("[Rilisoft] MainMenuController.PurchasesSynchronizer.InnerCallback >: {0:F3}", Time.realtimeSinceStartup);
@@ -548,7 +531,6 @@ internal sealed class MainMenuController : ControlsSettingsBase
 										Debug.LogFormat("[Rilisoft] < MainMenuController.PurchasesSynchronizer.InnerCallback: {0:F3}", Time.realtimeSinceStartup);
 									}
 								}
-							}
 							catch (Exception exception)
 							{
 								Debug.LogException(exception);
@@ -557,7 +539,6 @@ internal sealed class MainMenuController : ControlsSettingsBase
 							{
 								Debug.LogFormat("[Rilisoft] MainMenuController.PurchasesSynchronizer.Callback({0}) <: {1:F3}", succeeded, Time.realtimeSinceStartup);
 							}
-						});
 						Debug.LogFormat("[Rilisoft] MainMenuController.Authenticate.Callback({0}) <: {1:F3}", succeeded, Time.realtimeSinceStartup);
 					}
 				}
@@ -1508,7 +1489,6 @@ internal sealed class MainMenuController : ControlsSettingsBase
 			string caption = LocalizationStore.Get("Key_1974");
 			ActivityIndicator.SetActiveWithCaption(caption);
 			InfoWindowController.BlockAllClick();
-			yield return CoroutineRunner.Instance.StartCoroutine(PurchasesSynchronizer.Instance.SavePendingItemsToStorager());
 			InfoWindowController.HideCurrentWindow();
 			ActivityIndicator.IsActiveIndicator = false;
 			escapeSubscription.Dispose();

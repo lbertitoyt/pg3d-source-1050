@@ -28,18 +28,10 @@ public class CleanUpAndDoAction : MonoBehaviour
 			handler();
 		}
 		action = null;
-		while (FacebookController.LoggingIn)
-		{
-			yield return null;
-		}
 		int i = 0;
 		while (i < 60)
 		{
 			i++;
-			yield return null;
-		}
-		while (FacebookController.LoggingIn)
-		{
 			yield return null;
 		}
 		Application.LoadLevel(Defs.MainMenuScene);

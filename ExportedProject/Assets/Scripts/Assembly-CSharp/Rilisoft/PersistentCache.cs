@@ -67,7 +67,7 @@ namespace Rilisoft
 			try
 			{
 				Uri val = new Uri(url);
-				string[] segments = val.get_Segments();
+				string[] segments = val.Segments;
 				string path = string.Concat(segments).TrimStart('/');
 				return Path.Combine(_persistentDataPath, path);
 			}

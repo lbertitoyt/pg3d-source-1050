@@ -97,6 +97,7 @@ public class SampleSceneScript : MonoBehaviour
 		}
 		if (GUILayout.Button("MoveTo"))
 		{
+			// yo wtf
 			gameObject.MoveToLast(new GameObject[3]
 			{
 				new GameObject("lastChild1(Original)"),

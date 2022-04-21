@@ -2,7 +2,7 @@ public class BtnBannerSocialGun : ButtonBannerBase
 {
 	public override bool BannerIsActive()
 	{
-		return FacebookController.sharedController.SocialGunEventActive;
+		return false;
 	}
 
 	public override void OnClickButton()

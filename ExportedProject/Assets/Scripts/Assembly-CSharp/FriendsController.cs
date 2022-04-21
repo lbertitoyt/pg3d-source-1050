@@ -623,7 +623,7 @@ public sealed class FriendsController : MonoBehaviour
 	private IEnumerator GetPixelbookSettingsLoop(System.Threading.Tasks.Task futureToWait)
 	{
 		System.Threading.Tasks.Task futureToWait2 = default(System.Threading.Tasks.Task);
-		yield return new WaitUntil(() => futureToWait2.get_IsCompleted());
+		yield return new WaitUntil(() => futureToWait2.IsCompleted);
 		timerUpdatePixelbookSetting = Defs.timeUpdatePixelbookInfo;
 		while (true)
 		{
@@ -640,7 +640,7 @@ public sealed class FriendsController : MonoBehaviour
 	private IEnumerator GetNewsLoop(System.Threading.Tasks.Task futureToWait)
 	{
 		System.Threading.Tasks.Task futureToWait2 = default(System.Threading.Tasks.Task);
-		yield return new WaitUntil(() => futureToWait2.get_IsCompleted());
+		yield return new WaitUntil(() => futureToWait2.IsCompleted);
 		while (!TrainingController.TrainingCompleted && TrainingController.CompletedTrainingStage <= TrainingController.NewTrainingCompletedStage.ShopCompleted)
 		{
 			yield return null;
@@ -683,7 +683,7 @@ public sealed class FriendsController : MonoBehaviour
 	private IEnumerator GetBuffSettings(System.Threading.Tasks.Task futureToWait)
 	{
 		System.Threading.Tasks.Task futureToWait2 = default(System.Threading.Tasks.Task);
-		yield return new WaitUntil(() => futureToWait2.get_IsCompleted());
+		yield return new WaitUntil(() => futureToWait2.IsCompleted);
 		string url = ((!useBuffSystem) ? URLs.BuffSettings1031 : URLs.BuffSettings1050);
 		string cachedResponse = PersistentCacheManager.Instance.GetValue(url);
 		string responseText;
@@ -1163,10 +1163,6 @@ public sealed class FriendsController : MonoBehaviour
 		StartCoroutine(trafficForwardingScript.GetTrafficForwardingConfigLoopCoroutine());
 		StartCoroutine(GetFiltersSettings());
 		StartCoroutine(GetBuffSettings(futureToWait));
-		if (FacebookController.FacebookSupported)
-		{
-			FacebookController.ReceivedSelfID += HandleReceivedSelfID;
-		}
 		lastTouchTm = Time.realtimeSinceStartup + 15f;
 		friends = FillList("FriendsKey");
 		StartSendReview();
@@ -2919,16 +2915,8 @@ public sealed class FriendsController : MonoBehaviour
 
 	private IEnumerator _GetFacebookFriendsInfo(Action callb)
 	{
-		if (!FacebookController.FacebookSupported || FacebookController.sharedController.friendsList == null)
-		{
-			yield break;
-		}
 		GetFacebookFriendsCallback = callb;
 		List<string> ids = new List<string>();
-		foreach (Friend f in FacebookController.sharedController.friendsList)
-		{
-			ids.Add(f.id);
-		}
 		WWWForm form = new WWWForm();
 		form.AddField("action", "get_info_by_facebook_ids");
 		form.AddField("app_version", ProtocolListGetter.CurrentPlatform + ":" + GlobalGameController.AppVersion);
@@ -5105,35 +5093,6 @@ public sealed class FriendsController : MonoBehaviour
 		}
 	}
 
-	private string GetJsonIdsFacebookFriends()
-	{
-		if (Defs.IsDeveloperBuild)
-		{
-			Debug.Log("Start GetJsonIdsFacebookFriends");
-		}
-		FacebookController facebookController = FacebookController.sharedController;
-		if (facebookController == null)
-		{
-			return "[]";
-		}
-		if (facebookController.friendsList == null || facebookController.friendsList.Count == 0)
-		{
-			return "[]";
-		}
-		List<string> list = new List<string>();
-		for (int i = 0; i < facebookController.friendsList.Count; i++)
-		{
-			Friend friend = facebookController.friendsList[i];
-			list.Add(friend.id);
-		}
-		string text = Json.Serialize(list);
-		if (Defs.IsDeveloperBuild)
-		{
-			Debug.Log("GetJsonIdsFacebookFriends: " + text);
-		}
-		return text;
-	}
-
 	private IEnumerator GetPossibleFriendsList(int playerLevel, int platformId, string clientVersion)
 	{
 		WWWForm wwwForm = new WWWForm();
@@ -5147,8 +5106,6 @@ public sealed class FriendsController : MonoBehaviour
 		{
 			wwwForm.AddField("local_ids", Json.Serialize(FindFriendsFromLocalLAN.lanPlayerInfo));
 		}
-		string facebookFriendsJsonIds = GetJsonIdsFacebookFriends();
-		wwwForm.AddField("ids", facebookFriendsJsonIds);
 		wwwForm.AddField("rank", playerLevel.ToString());
 		wwwForm.AddField("platform_id", platformId.ToString());
 		wwwForm.AddField("version", clientVersion);

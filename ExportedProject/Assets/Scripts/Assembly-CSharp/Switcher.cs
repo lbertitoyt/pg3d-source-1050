@@ -5,8 +5,6 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Text;
-using GooglePlayGames;
-using GooglePlayGames.BasicApi;
 using Prime31;
 using Rilisoft;
 using UnityEngine;
@@ -666,10 +664,6 @@ internal sealed class Switcher : MonoBehaviour
 				{
 					UnityEngine.Debug.Log("Switcher: Trying to initialize Google Play Games...");
 				}
-				PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder().EnableSavedGames().Build();
-				PlayGamesPlatform.InitializeInstance(config);
-				PlayGamesPlatform.DebugLogEnabled = Defs.IsDeveloperBuild && BuildSettings.BuildTargetPlatform == RuntimePlatform.Android;
-				PlayGamesPlatform.Activate();
 			}
 			catch (Exception ex3)
 			{
@@ -1084,10 +1078,6 @@ internal sealed class Switcher : MonoBehaviour
 		}
 		_progress = bounds.Clamp(_progress + 0.01f);
 		yield return _progress;
-		if (FacebookController.sharedController == null && FacebookController.FacebookSupported && faceBookControllerPrefab != null)
-		{
-			UnityEngine.Object.Instantiate(faceBookControllerPrefab);
-		}
 		_progress = bounds.Clamp(_progress + 0.01f);
 		yield return _progress;
 		if (ButtonClickSound.Instance == null && buttonClickSoundPrefab != null)

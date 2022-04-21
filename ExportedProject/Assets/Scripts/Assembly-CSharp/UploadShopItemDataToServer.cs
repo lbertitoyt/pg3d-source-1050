@@ -206,17 +206,17 @@ public class UploadShopItemDataToServer : MonoBehaviour
 		try
 		{
 			FtpWebRequest val = (FtpWebRequest)WebRequest.Create("ftp://secure.pixelgunserver.com//test.htm");
-			val.set_Method("STOR");
-			val.set_UsePassive(false);
-			val.set_Credentials((ICredentials)new NetworkCredential("rilisoft", "11QQwwee"));
+			val.Method = "STOR";
+			val.UsePassive = false;
+			val.Credentials = (ICredentials)new NetworkCredential("rilisoft", "11QQwwee");
 			FtpWebResponse val2 = (FtpWebResponse)val.GetResponse();
-			Debug.Log(string.Format("Upload File Complete, status {0}", val2.get_StatusDescription()));
+			Debug.Log(string.Format("Upload File Complete, status {0}", val2.StatusDescription));
 			val2.Close();
 		}
 		catch (WebException val3)
 		{
 			WebException val4 = val3;
-			string statusDescription = ((FtpWebResponse)val4.get_Response()).get_StatusDescription();
+			string statusDescription = ((FtpWebResponse)val4.Response).StatusDescription;
 			Debug.Log(statusDescription);
 		}
 	}

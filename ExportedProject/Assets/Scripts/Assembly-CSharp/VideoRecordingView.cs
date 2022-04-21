@@ -71,7 +71,7 @@ internal sealed class VideoRecordingView : MonoBehaviour, IDisposable
 	{
 		get
 		{
-			return _isRecordingSupportedPromise.get_Task();
+			return _isRecordingSupportedPromise.Task;
 		}
 	}
 
@@ -170,7 +170,7 @@ internal sealed class VideoRecordingView : MonoBehaviour, IDisposable
 	{
 		WaitForSeconds delay = new WaitForSeconds(5f);
 		System.Threading.Tasks.Task isRecordingSupportedFuture = IsRecordingSupportedFuture;
-		while (!isRecordingSupportedFuture.get_IsCompleted())
+		while (!isRecordingSupportedFuture.IsCompleted)
 		{
 			try
 			{
@@ -188,7 +188,7 @@ internal sealed class VideoRecordingView : MonoBehaviour, IDisposable
 			}
 			yield return delay;
 		}
-		Debug.LogFormat("isRecordingSupportedFuture.IsFaulted: {0}", isRecordingSupportedFuture.get_IsFaulted());
+		Debug.LogFormat("isRecordingSupportedFuture.IsFaulted: {0}", isRecordingSupportedFuture.IsFaulted);
 	}
 
 	private void Update()
@@ -199,7 +199,7 @@ internal sealed class VideoRecordingView : MonoBehaviour, IDisposable
 		}
 		bool isEditor = Application.isEditor;
 		bool isWeakDevice = IsWeakDevice;
-		bool flag = IsRecordingSupportedFuture.get_IsCompleted() && !IsRecordingSupportedFuture.get_IsFaulted();
+		bool flag = IsRecordingSupportedFuture.IsCompleted && !IsRecordingSupportedFuture.IsFaulted;
 		interfaceContainer.gameObject.SetActive(_interfaceEnabled && !isWeakDevice && (isEditor || flag));
 		if (interfaceContainer.gameObject.activeInHierarchy)
 		{

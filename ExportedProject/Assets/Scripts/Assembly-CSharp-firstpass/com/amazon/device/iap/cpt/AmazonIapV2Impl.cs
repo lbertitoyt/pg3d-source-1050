@@ -66,7 +66,7 @@ namespace com.amazon.device.iap.cpt
 				val.Start();
 				string result = NativeGetUserDataJson(jsonMessage);
 				val.Stop();
-				logger.Debug(string.Format("Successfully called native code in {0} ms", val.get_ElapsedMilliseconds()));
+				logger.Debug(string.Format("Successfully called native code in {0} ms", val.ElapsedMilliseconds));
 				return result;
 			}
 
@@ -86,7 +86,7 @@ namespace com.amazon.device.iap.cpt
 				val.Start();
 				string result = NativePurchaseJson(jsonMessage);
 				val.Stop();
-				logger.Debug(string.Format("Successfully called native code in {0} ms", val.get_ElapsedMilliseconds()));
+				logger.Debug(string.Format("Successfully called native code in {0} ms", val.ElapsedMilliseconds));
 				return result;
 			}
 
@@ -106,7 +106,7 @@ namespace com.amazon.device.iap.cpt
 				val.Start();
 				string result = NativeGetProductDataJson(jsonMessage);
 				val.Stop();
-				logger.Debug(string.Format("Successfully called native code in {0} ms", val.get_ElapsedMilliseconds()));
+				logger.Debug(string.Format("Successfully called native code in {0} ms", val.ElapsedMilliseconds));
 				return result;
 			}
 
@@ -126,7 +126,7 @@ namespace com.amazon.device.iap.cpt
 				val.Start();
 				string result = NativeGetPurchaseUpdatesJson(jsonMessage);
 				val.Stop();
-				logger.Debug(string.Format("Successfully called native code in {0} ms", val.get_ElapsedMilliseconds()));
+				logger.Debug(string.Format("Successfully called native code in {0} ms", val.ElapsedMilliseconds));
 				return result;
 			}
 
@@ -146,7 +146,7 @@ namespace com.amazon.device.iap.cpt
 				val.Start();
 				string result = NativeNotifyFulfillmentJson(jsonMessage);
 				val.Stop();
-				logger.Debug(string.Format("Successfully called native code in {0} ms", val.get_ElapsedMilliseconds()));
+				logger.Debug(string.Format("Successfully called native code in {0} ms", val.ElapsedMilliseconds));
 				return result;
 			}
 

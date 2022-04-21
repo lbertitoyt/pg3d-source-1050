@@ -66,7 +66,7 @@ namespace com.amazon.mas.cpt.ads
 				val.Start();
 				string result = NativeSetApplicationKeyJson(jsonMessage);
 				val.Stop();
-				logger.Debug(string.Format("Successfully called native code in {0} ms", val.get_ElapsedMilliseconds()));
+				logger.Debug(string.Format("Successfully called native code in {0} ms", val.ElapsedMilliseconds));
 				return result;
 			}
 
@@ -86,7 +86,7 @@ namespace com.amazon.mas.cpt.ads
 				val.Start();
 				string result = NativeRegisterApplicationJson(jsonMessage);
 				val.Stop();
-				logger.Debug(string.Format("Successfully called native code in {0} ms", val.get_ElapsedMilliseconds()));
+				logger.Debug(string.Format("Successfully called native code in {0} ms", val.ElapsedMilliseconds));
 				return result;
 			}
 
@@ -106,7 +106,7 @@ namespace com.amazon.mas.cpt.ads
 				val.Start();
 				string result = NativeEnableLoggingJson(jsonMessage);
 				val.Stop();
-				logger.Debug(string.Format("Successfully called native code in {0} ms", val.get_ElapsedMilliseconds()));
+				logger.Debug(string.Format("Successfully called native code in {0} ms", val.ElapsedMilliseconds));
 				return result;
 			}
 
@@ -126,7 +126,7 @@ namespace com.amazon.mas.cpt.ads
 				val.Start();
 				string result = NativeEnableTestingJson(jsonMessage);
 				val.Stop();
-				logger.Debug(string.Format("Successfully called native code in {0} ms", val.get_ElapsedMilliseconds()));
+				logger.Debug(string.Format("Successfully called native code in {0} ms", val.ElapsedMilliseconds));
 				return result;
 			}
 
@@ -146,7 +146,7 @@ namespace com.amazon.mas.cpt.ads
 				val.Start();
 				string result = NativeEnableGeoLocationJson(jsonMessage);
 				val.Stop();
-				logger.Debug(string.Format("Successfully called native code in {0} ms", val.get_ElapsedMilliseconds()));
+				logger.Debug(string.Format("Successfully called native code in {0} ms", val.ElapsedMilliseconds));
 				return result;
 			}
 
@@ -166,7 +166,7 @@ namespace com.amazon.mas.cpt.ads
 				val.Start();
 				string result = NativeCreateFloatingBannerAdJson(jsonMessage);
 				val.Stop();
-				logger.Debug(string.Format("Successfully called native code in {0} ms", val.get_ElapsedMilliseconds()));
+				logger.Debug(string.Format("Successfully called native code in {0} ms", val.ElapsedMilliseconds));
 				return result;
 			}
 
@@ -186,7 +186,7 @@ namespace com.amazon.mas.cpt.ads
 				val.Start();
 				string result = NativeCreateInterstitialAdJson(jsonMessage);
 				val.Stop();
-				logger.Debug(string.Format("Successfully called native code in {0} ms", val.get_ElapsedMilliseconds()));
+				logger.Debug(string.Format("Successfully called native code in {0} ms", val.ElapsedMilliseconds));
 				return result;
 			}
 
@@ -206,7 +206,7 @@ namespace com.amazon.mas.cpt.ads
 				val.Start();
 				string result = NativeLoadAndShowFloatingBannerAdJson(jsonMessage);
 				val.Stop();
-				logger.Debug(string.Format("Successfully called native code in {0} ms", val.get_ElapsedMilliseconds()));
+				logger.Debug(string.Format("Successfully called native code in {0} ms", val.ElapsedMilliseconds));
 				return result;
 			}
 
@@ -226,7 +226,7 @@ namespace com.amazon.mas.cpt.ads
 				val.Start();
 				string result = NativeLoadInterstitialAdJson(jsonMessage);
 				val.Stop();
-				logger.Debug(string.Format("Successfully called native code in {0} ms", val.get_ElapsedMilliseconds()));
+				logger.Debug(string.Format("Successfully called native code in {0} ms", val.ElapsedMilliseconds));
 				return result;
 			}
 
@@ -246,7 +246,7 @@ namespace com.amazon.mas.cpt.ads
 				val.Start();
 				string result = NativeShowInterstitialAdJson(jsonMessage);
 				val.Stop();
-				logger.Debug(string.Format("Successfully called native code in {0} ms", val.get_ElapsedMilliseconds()));
+				logger.Debug(string.Format("Successfully called native code in {0} ms", val.ElapsedMilliseconds));
 				return result;
 			}
 
@@ -266,7 +266,7 @@ namespace com.amazon.mas.cpt.ads
 				val.Start();
 				string result = NativeCloseFloatingBannerAdJson(jsonMessage);
 				val.Stop();
-				logger.Debug(string.Format("Successfully called native code in {0} ms", val.get_ElapsedMilliseconds()));
+				logger.Debug(string.Format("Successfully called native code in {0} ms", val.ElapsedMilliseconds));
 				return result;
 			}
 
@@ -286,7 +286,7 @@ namespace com.amazon.mas.cpt.ads
 				val.Start();
 				string result = NativeIsInterstitialAdReadyJson(jsonMessage);
 				val.Stop();
-				logger.Debug(string.Format("Successfully called native code in {0} ms", val.get_ElapsedMilliseconds()));
+				logger.Debug(string.Format("Successfully called native code in {0} ms", val.ElapsedMilliseconds));
 				return result;
 			}
 
@@ -306,7 +306,7 @@ namespace com.amazon.mas.cpt.ads
 				val.Start();
 				string result = NativeAreAdsEqualJson(jsonMessage);
 				val.Stop();
-				logger.Debug(string.Format("Successfully called native code in {0} ms", val.get_ElapsedMilliseconds()));
+				logger.Debug(string.Format("Successfully called native code in {0} ms", val.ElapsedMilliseconds));
 				return result;
 			}
 

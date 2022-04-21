@@ -214,7 +214,7 @@ public class PropertyReference
 		{
 			if (Application.isPlaying)
 			{
-				Debug.LogError(string.Concat("Unable to convert ", value.GetType(), " to ", GetPropertyType()));
+				UnityEngine.Debug.LogError(string.Concat("Unable to convert ", value.GetType(), " to ", GetPropertyType()));
 			}
 		}
 		else
