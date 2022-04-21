@@ -5,6 +5,8 @@ namespace LitJson
 {
 	public interface IJsonWrapper : IEnumerable, IList, IDictionary, ICollection, IOrderedDictionary
 	{
+		JsonData this[int index] { get; set; }
+
 		bool IsArray { get; }
 
 		bool IsBoolean { get; }
