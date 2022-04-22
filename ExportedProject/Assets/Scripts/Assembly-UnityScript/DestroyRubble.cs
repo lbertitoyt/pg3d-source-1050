@@ -1,8 +1,8 @@
+using Boo.Lang;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using Boo.Lang;
 using UnityEngine;
 
 [Serializable]
@@ -19,10 +19,7 @@ public class DestroyRubble : MonoBehaviour
 			self_18 = self_;
 		}
 
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return (IEnumerator<WaitForSeconds>)(object)self_18;
-		}
+		public override IEnumerator<WaitForSeconds> GetEnumerator() => (IEnumerator<WaitForSeconds>)(object)self_18;
 	}
 
 	public float maxTime;
@@ -36,10 +33,7 @@ public class DestroyRubble : MonoBehaviour
 		maxTime = 3f;
 	}
 
-	public IEnumerator Start()
-	{
-		return new Start15(this).GetEnumerator();
-	}
+	public IEnumerator Start() => new Start15(this).GetEnumerator();
 
 	public void Main()
 	{

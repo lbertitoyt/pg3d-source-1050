@@ -167,6 +167,32 @@ namespace LitJson
 			}
 		}
 
+		JsonData IJsonWrapper.this[int index]
+		{
+			get
+			{
+				throw new NotImplementedException();
+			}
+
+			set
+			{
+				throw new NotImplementedException();
+			}
+		}
+
+		object IOrderedDictionary.this[int index]
+		{
+			get
+			{
+				throw new NotImplementedException();
+			}
+
+			set
+			{
+				throw new NotImplementedException();
+			}
+		}
+
 		int IList.Add(object value)
 		{
 			return 0;

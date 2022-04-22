@@ -7,10 +7,7 @@ namespace Rilisoft
 {
 	public static class RiliExtensions
 	{
-		public static bool IsNullOrEmpty(this string str)
-		{
-			return string.IsNullOrEmpty(str);
-		}
+		public static bool IsNullOrEmpty(this string str) => string.IsNullOrEmpty(str);
 
 		public static T? ToEnum<T>(this string str, T? defaultVal = null) where T : struct
 		{
@@ -77,7 +74,7 @@ namespace Rilisoft
 		public static GameObject GetChildGameObject(this GameObject go, string name, bool includeInactive = false)
 		{
 			Transform transform = go.transform.GetComponentsInChildren<Transform>(includeInactive).FirstOrDefault((Transform t) => t.gameObject.name == name);
-			return (!(transform != null)) ? null : transform.gameObject;
+			return transform?.gameObject;
 		}
 
 		public static T GetComponentInChildren<T>(this GameObject go, string name, bool includeInactive = false)
@@ -122,7 +119,7 @@ namespace Rilisoft
 		public static T GetOrAddComponent<T>(this Component child) where T : Component
 		{
 			T val = child.GetComponent<T>();
-			if ((UnityEngine.Object)val == (UnityEngine.Object)null)
+			if (val == null)
 			{
 				val = child.gameObject.AddComponent<T>();
 			}
@@ -132,7 +129,7 @@ namespace Rilisoft
 		public static T GetOrAddComponent<T>(this GameObject child) where T : Component
 		{
 			T val = child.GetComponent<T>();
-			if ((UnityEngine.Object)val == (UnityEngine.Object)null)
+			if (val == null)
 			{
 				val = child.gameObject.AddComponent<T>();
 			}

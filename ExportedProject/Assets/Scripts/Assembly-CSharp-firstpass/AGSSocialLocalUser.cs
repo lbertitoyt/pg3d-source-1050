@@ -40,6 +40,11 @@ public class AGSSocialLocalUser : AGSSocialUser, ILocalUser, IUserProfile
 		Social.Active.Authenticate(this, callback);
 	}
 
+	public void Authenticate(Action<bool, string> callback)
+	{
+		throw new NotImplementedException();
+	}
+
 	public void LoadFriends(Action<bool> callback)
 	{
 		GameCircleSocial.Instance.RequestFriends(callback);

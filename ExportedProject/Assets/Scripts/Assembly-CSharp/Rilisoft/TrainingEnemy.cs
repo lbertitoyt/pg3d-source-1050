@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Linq;
-using Unity.Linq;
 using UnityEngine;
 
 namespace Rilisoft
@@ -49,7 +47,8 @@ namespace Rilisoft
 				{
 					return _headCol;
 				}
-				GameObject gameObject = base.gameObject.Descendants("HeadCollider").FirstOrDefault();
+				//GameObject gameObject = base.gameObject.Descendants("HeadCollider").FirstOrDefault();
+				GameObject gameObject = this.gameObject.GetComponentInChildren<GameObject>("HeadCollider", true);
 				if (gameObject != null)
 				{
 					_headCol = gameObject.GetComponent<Collider>();
@@ -58,10 +57,7 @@ namespace Rilisoft
 			}
 		}
 
-		public void WakeUp(float delaySeconds = 0f)
-		{
-			StartCoroutine(AwakeCoroutine(delaySeconds));
-		}
+		public void WakeUp(float delaySeconds = 0f) => StartCoroutine(AwakeCoroutine(delaySeconds));
 
 		public void ApplyDamage(float damage, bool isHeadShot)
 		{

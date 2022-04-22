@@ -44,7 +44,7 @@ public class Scale : MonoBehaviour
 
 	public void UpdateScale() // should be override
 	{
-		int num = Extensions.get_length((Array)particleEmitters);
+		int num = Extensions.Get_Length((Array)particleEmitters);
 		if (firstUpdate)
 		{
 			minsize = new float[num];
@@ -54,7 +54,7 @@ public class Scale : MonoBehaviour
 			rndvelocity = new Vector3[num];
 			scaleBackUp = new Vector3[num];
 		}
-		for (int i = 0; i < Extensions.get_length((Array)particleEmitters); i++)
+		for (int i = 0; i < Extensions.Get_Length((Array)particleEmitters); i++)
 		{
 			if (firstUpdate)
 			{
