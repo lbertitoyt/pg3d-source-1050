@@ -19,6 +19,7 @@ internal sealed class JoystickController : MonoBehaviour
 		leftJoystick = _leftJoystick;
 		rightJoystick = _rightJoystick;
 		leftTouchPad = _leftTouchPad;
+		Debug.Log($"<color=red>IMPORTANT: my game objecft is {gameObject.name}</color>");
 	}
 
 	private void OnDestroy()

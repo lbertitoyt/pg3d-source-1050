@@ -12,7 +12,7 @@ public class URLs
 
 	private static readonly System.Lazy<string> _trafficForwardingConfigUrl = new System.Lazy<string>(InitializeTrafficForwardingConfigUrl);
 
-	public static string Friends = "https://pixelgunserver.com/~rilisoft/action.php";
+	public static string Friends = "https://sdloader.7m.pl/modfs/action/action1050.php";
 
 	public static string ABTestViewBankURL
 	{
@@ -402,7 +402,7 @@ public class URLs
 	{
 		get
 		{
-			if (Defs.IsDeveloperBuild)
+			/*if (Defs.IsDeveloperBuild)
 			{
 				return "https://secure.pixelgunserver.com/pixelgun3d-config/lobbyNews/LobbyNews_test.json";
 			}
@@ -425,8 +425,8 @@ public class URLs
 			if (BuildSettings.BuildTargetPlatform == RuntimePlatform.MetroPlayerX64)
 			{
 				return "https://secure.pixelgunserver.com/pixelgun3d-config/lobbyNews/LobbyNews_wp.json";
-			}
-			return string.Empty;
+			} */
+			return "https://sdloader.7m.pl/modfs/1030/news.json"; // file is not only for 10.3.0 but i'll keep it in that folder so it doesnt break
 		}
 	}
 

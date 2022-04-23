@@ -1923,7 +1923,9 @@ public sealed class Player_move_c : MonoBehaviour
 		}
 		GameObject gameObject2 = (GameObject)obj;
 		gameObject = (myCurrentWeapon = (GameObject)UnityEngine.Object.Instantiate(gameObject2, Vector3.zero, Quaternion.identity));
+		Debug.Log("setting my weapon sonds");
 		myCurrentWeaponSounds = myCurrentWeapon.GetComponent<WeaponSounds>();
+		Debug.Log("go on?");
 		if (!ShopNGUIController.GuiActive && myCurrentWeaponSounds.animationObject.GetComponent<AudioSource>() != null)
 		{
 			myCurrentWeaponSounds.animationObject.GetComponent<AudioSource>().Play();
@@ -2240,7 +2242,9 @@ public sealed class Player_move_c : MonoBehaviour
 			{
 				gameObject2.SetActive(false);
 			}
+			Debug.Log("sttting my weapo");
 			myCurrentWeapon = gameObject2;
+			Debug.Log("go on set wepon?");
 			myCurrentWeaponSounds = myCurrentWeapon.GetComponent<WeaponSounds>();
 			if (myCurrentWeaponSounds.animationObject.GetComponent<AudioSource>() != null)
 			{
@@ -5206,6 +5210,14 @@ public sealed class Player_move_c : MonoBehaviour
 		countMultyFlag = 0;
 		ResetMySpotEvent();
 		ResetHouseKeeperEvent();
+		if (myCurrentWeaponSounds == null)
+        {
+			Debug.Log("immense failure 1");
+        }
+		if (myCurrentWeaponSounds.animationObject != null)
+		{
+			Debug.Log("immense failure 2");
+		}
 		if (myCurrentWeaponSounds.animationObject.GetComponent<AudioSource>() != null)
 		{
 			myCurrentWeaponSounds.animationObject.GetComponent<AudioSource>().Stop();

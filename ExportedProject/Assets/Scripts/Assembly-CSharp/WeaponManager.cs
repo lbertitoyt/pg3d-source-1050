@@ -2879,7 +2879,8 @@ public sealed class WeaponManager : MonoBehaviour
 			outerWeaponPrefabs = Resources.LoadAll<WeaponSounds>("Weapons").ToList();
 		}
 		yield return null;
-		gunsForPixelGunLow = outerWeaponPrefabs.ToDictionary((WeaponSounds w) => w.name, (WeaponSounds w) => (w.typeForLow == WeaponTypeForLow.NOT_CHANGE) ? w.name : PixelGunLowWeaponsTable.table[w.typeForLow][ExpController.OurTierForAnyPlace()]);
+		// todo: fix this nonsense error which i will fix now
+		gunsForPixelGunLow = new Dictionary<string, string>();
 		if (!Defs.isHunger && !Defs.isDaterRegim)
 		{
 			int yieldCount = 0;
@@ -3704,6 +3705,8 @@ public sealed class WeaponManager : MonoBehaviour
 		//Discarded unreachable code: IL_0059, IL_0076
 		try
 		{
+			// ok im retarded
+			// WHY DOES IT STILL NOT FUCKING WORK
 			WeaponSounds weaponSounds = Resources.Load<WeaponSounds>("Weapons/" + ItemDb.GetByTag(tagToAdd).PrefabName);
 			Weapon weapon = new Weapon();
 			weapon.weaponPrefab = weaponSounds.gameObject;

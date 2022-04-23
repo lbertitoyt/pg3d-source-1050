@@ -672,6 +672,7 @@ public sealed class ZombieCreator : MonoBehaviour
 				bossMus = Resources.Load("Snd/boss_campaign") as AudioClip;
 			}
 			GlobalGameController.curThr = GlobalGameController.thrStep;
+			_enemies = new List<string[]>();
 			_enemies.Add(new string[6] { "1", "2", "1", "11", "12", "13" });
 			_enemies.Add(new string[6] { "30", "31", "32", "33", "34", "77" });
 			_enemies.Add(new string[9] { "1", "2", "3", "9", "10", "12", "14", "15", "78" });

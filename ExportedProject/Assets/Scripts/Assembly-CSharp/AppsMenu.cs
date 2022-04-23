@@ -142,7 +142,7 @@ internal sealed class AppsMenu : MonoBehaviour
 		{
 			_backSubscription.Dispose();
 		}
-		_backSubscription = BackSystem.Instance.Register(Application.Quit, "AppsMenu");
+		_backSubscription = BackSystem.Instance.Register(Application.Quit, "AppsMenu"); // this is useless error its just the back button behavoirsur
 	}
 
 	private void OnDisable()
