@@ -3724,6 +3724,7 @@ public sealed class WeaponManager : MonoBehaviour
 
 	public IEnumerator ResetCoroutine(int filterMap = 0)
 	{
+		// Bro I talk to dashcat
 		if (_resetLock)
 		{
 			Debug.LogWarning("Simultaneous executing of WeaponManagers ResetCoroutines");

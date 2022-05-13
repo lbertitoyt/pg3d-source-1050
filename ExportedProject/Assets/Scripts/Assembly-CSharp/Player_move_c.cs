@@ -2236,8 +2236,9 @@ public sealed class Player_move_c : MonoBehaviour
 		}
 		if (gameObject != null)
 		{
-			GameObject gameObject2 = null;
-			gameObject2 = (GameObject)UnityEngine.Object.Instantiate(gameObject, Vector3.zero, Quaternion.identity);
+			// why is this here?
+			// GameObject gameObject2 = null;
+			GameObject gameObject2 = (GameObject)UnityEngine.Object.Instantiate(gameObject, Vector3.zero, Quaternion.identity);
 			if (isMechActive)
 			{
 				gameObject2.SetActive(false);
@@ -3751,6 +3752,7 @@ public sealed class Player_move_c : MonoBehaviour
 		if (!isMulti || isMine)
 		{
 			ShopNGUIController.sharedShop.SetGearCatEnabled(true);
+			Debug.Log((JoystickController.rightJoystick == null).ToString());
 			if (((JoystickController.rightJoystick.jumpPressed || JoystickController.leftTouchPad.isJumpPressed) && Defs.isJetpackEnabled) != isJumpPresedOld && (Defs.isJetpackEnabled || isJumpPresedOld))
 			{
 				SetJetpackParticleEnabled((JoystickController.rightJoystick.jumpPressed || JoystickController.leftTouchPad.isJumpPressed) && Defs.isJetpackEnabled);
@@ -5211,9 +5213,9 @@ public sealed class Player_move_c : MonoBehaviour
 		ResetMySpotEvent();
 		ResetHouseKeeperEvent();
 		if (myCurrentWeaponSounds == null)
-        {
+		{
 			Debug.Log("immense failure 1");
-        }
+		}
 		if (myCurrentWeaponSounds.animationObject != null)
 		{
 			Debug.Log("immense failure 2");
